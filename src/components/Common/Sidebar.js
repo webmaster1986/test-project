@@ -15,6 +15,10 @@ const Sidebar = ({location: {pathname}}) => {
             <small>Settings</small>
             <i className="fa fa-angle-right"/>
           </Link>
+          <Link to={'/tests'} className={`${pathname === '/tests' && 'active' }`}>
+            <small>Tests</small>
+            <i className="fa fa-angle-right"/>
+          </Link>
         </li>
       </ul>
     </div>

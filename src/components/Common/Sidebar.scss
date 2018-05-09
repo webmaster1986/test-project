@@ -10,6 +10,9 @@ body {
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  .toggled {
+
+  }
 }
 .sidebar-wrapper {
   z-index: 1;
@@ -24,6 +27,11 @@ body {
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
   box-shadow: 2px 0 7px 0 #eae7e7;
+  .menu {
+    a {
+
+    }
+  }
 }
 .page-content-wrapper {
   width: 100%;

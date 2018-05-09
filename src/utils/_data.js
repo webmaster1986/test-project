@@ -33,3 +33,32 @@ export async function getOverviewText() {
   const res = await axios.get(url, config)
   return res.data;
 }
+
+// Test Details Api
+export async function getTestDetailsById(testId) {
+  const url = utils.getURL(`testDetails/${testId}`);
+  const res = await axios.get(url, config);
+  return res.data;
+}
+
+
+// Test Api
+export async function deleteTest(testId) {
+  const url = utils.getURL(`tests/${testId}`);
+  const res = await axios.delete(url, config);
+  return res.data;
+}
+
+export async function getTests() {
+  const url = utils.getURL(`tests`);
+  const res = await axios.get(url, config);
+  return res.data;
+}
+
+// candidates Api
+
+export async function getCandidates() {
+  const url = utils.getURL(`candidates`);
+  const res = await axios.get(url, config);
+  return res.data;
+}

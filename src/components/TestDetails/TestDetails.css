@@ -1,0 +1,41 @@
+.test-details {
+  font-size: 90% !important; }
+  .test-details .btn-rounded {
+    border-radius: 50px; }
+  .test-details .invites-bg {
+    border: solid 1px #1a1746;
+    color: #1a1746; }
+  .test-details .card {
+    border-radius: 4px;
+    box-shadow: 0 0 9px 0 rgba(102, 102, 102, 0.13); }
+    .test-details .card .card-body .card-text .question {
+      margin: 0; }
+    .test-details .card .card-body .card-text ul {
+      padding-left: 10px; }
+      .test-details .card .card-body .card-text ul li {
+        list-style: none; }
+    .test-details .card .card-body .card-text .pages li {
+      display: inline-block;
+      padding: 3px 10px;
+      border: solid 1px #1d1d1c1f;
+      margin-right: 10px;
+      cursor: pointer; }
+      .test-details .card .card-body .card-text .pages li.active {
+        background: #1a1746; }
+  .test-details a {
+    cursor: pointer; }
+  .test-details .candidates table thead tr {
+    height: 50px;
+    box-shadow: 4px 4px 9px 0 #eae7e7;
+    font-weight: bold;
+    font-size: 12px; }
+  .test-details .candidates table tbody tr {
+    height: 56px;
+    opacity: 0.8;
+    font-size: 13px;
+    background-color: #f6f9fc;
+    box-shadow: 4px 4px 9px 0 #eae7e7; }
+    .test-details .candidates table tbody tr td .link {
+      cursor: pointer;
+      width: 100%;
+      text-decoration: underline; }

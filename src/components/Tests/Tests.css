@@ -1,0 +1,29 @@
+.tests {
+  font-size: 80% !important; }
+  .tests .col-md-4 .card {
+    margin: 10px 0;
+    border-radius: 4px;
+    box-shadow: 0 0 9px 0 rgba(102, 102, 102, 0.13); }
+    .tests .col-md-4 .card .hover-active {
+      display: none; }
+    .tests .col-md-4 .card:hover {
+      opacity: 0.9;
+      border-radius: 4px;
+      background-color: #4370f9; }
+      .tests .col-md-4 .card:hover .card-body {
+        position: relative; }
+        .tests .col-md-4 .card:hover .card-body .hover-active {
+          display: block;
+          position: absolute;
+          top: 85px;
+          left: 0;
+          right: 0; }
+          .tests .col-md-4 .card:hover .card-body .hover-active a {
+            cursor: pointer;
+            border: solid 1px #ffffff;
+            padding: 10px;
+            border-radius: 50%; }
+        .tests .col-md-4 .card:hover .card-body .card-title {
+          color: #ffffff; }
+        .tests .col-md-4 .card:hover .card-body .text-muted {
+          color: #6a6b6d38 !important; }

@@ -1,0 +1,42 @@
+.tests {
+  font-size: 80% !important;
+  .col-md-4 {
+    .card {
+      margin: 10px 0;
+      border-radius: 4px;
+      box-shadow: 0 0 9px 0 rgba(102, 102, 102, 0.13);
+      //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 1px 0 rgba(0, 0, 0, 0.19);
+    .hover-active {
+      display: none;
+    }
+    &:hover {
+      opacity: 0.9;
+      border-radius: 4px;
+      background-color: #4370f9;
+      .card-body {
+        position: relative;
+        .hover-active {
+          display: block;
+          position: absolute;
+          top: 85px;
+          left: 0;
+          right: 0;
+          a {
+            cursor: pointer;
+            border: solid 1px #ffffff;
+            padding: 10px;
+            border-radius: 50%;
+          }
+        }
+        .card-title {
+          color: #ffffff;
+        }
+        .text-muted {
+          color: #6a6b6d38 !important;
+        }
+      }
+
+    }
+  }
+  }
+}
