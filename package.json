@@ -1,0 +1,28 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "json-server": "^0.12.2",
+    "node-sass": "^4.9.0",
+    "node-sass-chokidar": "^1.2.2",
+    "npm-run-all": "^4.1.3",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js & npm run apiserver",
+    "build-js": "react-scripts build",
+    "build": "npm-run-all build-css build-js",
+    "build-dev": "dotenv -e .env.development react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "apiserver": "json-server --watch --port 4000 db/db.json"
+  }
+}

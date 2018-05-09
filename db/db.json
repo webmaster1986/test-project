@@ -1,0 +1,154 @@
+{
+  "users": [
+    {
+      "firstName": "tester",
+      "lastName": "1",
+      "email": "tester@gmail.com",
+      "designation": "admin",
+      "id": 1
+    },
+    {
+      "firstName": "tester",
+      "lastName": "2",
+      "email": "tester2@gmail.com",
+      "designation": "employ",
+      "id": 2
+    },
+    {
+      "firstName": "tester",
+      "lastName": "3",
+      "email": "tester3@gmail.com",
+      "designation": "employ",
+      "id": 3
+    },
+    {
+      "firstName": "tester",
+      "lastName": "4",
+      "email": "tester4@gmail.com",
+      "designation": "employ",
+      "id": 4
+    }
+  ],
+  "overview": {
+    "text": "Welcome to our site."
+  },
+  "tests": [{
+      "testName": "test1",
+      "description": "description1",
+      "testid": 1
+    },
+    {
+      "testName": "test2",
+      "description": "description2",
+      "testid": 2
+
+    },
+    {
+      "testName": "test3",
+      "description": "description3",
+      "testid": 3
+    },
+    {
+      "testName": "test4",
+      "description": "description4",
+      "testid": 4
+    }],
+    "testDetails": [{
+      "testName":"test1",
+      "testid":"1",
+      "MCQCount":4,
+      "CodingTestCount":1,
+      "CodingTests":[
+        {
+          "CodingTestName":"CodingTest1",
+          "CodingTestDescription":"<div> Coding Test HTML Content </div>"
+        }
+      ],
+      "MCQQuestions":[
+        {
+          "Question":"Java Is a ____ Language",
+          "Answers":[
+            {
+              "answertext":"weakly typed",
+              "correctAnswer":"false"
+            },
+            {
+              "answertext":"strongly typed",
+              "correctAnswer":"true"
+            },
+            {
+              "answertext":"moderately typed",
+              "correctAnswer":"false"
+            },
+            {
+              "answertext":"none of above",
+              "correctAnswer":"false"
+            }
+          ]
+        },
+        {
+          "Question":"Which of the following class definitions defines legal abstract class?",
+          "Answers":[
+            {
+              "answertext":"class A {abstract void unfinished() {}}",
+              "correctAnswer":"false"
+            },
+            {
+              "answertext":"class A {abstract void unfinished();}",
+              "correctAnswer":"false"
+            },
+            {
+              "answertext":"abstract class A {abstract void unfinished();}",
+              "correctAnswer":"true"
+            },
+            {
+              "answertext":"public class abstract A {abstract void unfinished();}",
+              "correctAnswer":"false"
+            }
+          ]
+        },
+        {
+          "Question":"Java Is a ____ Language",
+          "Answers":[
+            {
+              "answertext":"weakly typed",
+              "correctAnswer":"false"
+            },
+            {
+              "answertext":"strongly typed",
+              "correctAnswer":"true"
+            },
+            {
+              "answertext":"moderately typed",
+              "correctAnswer":"false"
+            },
+            {
+              "answertext":"none of above",
+              "correctAnswer":"false"
+            }
+          ]
+        },
+        {
+          "Question":"Which of the following class definitions defines legal abstract class?",
+          "Answers":[
+            {
+              "answertext":"class A {abstract void unfinished() {}}",
+              "correctAnswer":"false"
+            },
+            {
+              "answertext":"class A {abstract void unfinished();}",
+              "correctAnswer":"false"
+            },
+            {
+              "answertext":"abstract class A {abstract void unfinished();}",
+              "correctAnswer":"true"
+            },
+            {
+              "answertext":"public class abstract A {abstract void unfinished();}",
+              "correctAnswer":"false"
+            }
+          ]
+        }
+      ]
+    }]
+}

@@ -1,0 +1,27 @@
+.header {
+  background: #257dc2;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 2; }
+  .header .logo {
+    width: 79.5px;
+    height: 21.4px;
+    background-color: #ffffff; }
+  .header .Hi-John {
+    font-family: HelveticaNeue;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    text-align: right;
+    color: #ffffff; }
+  .header .userImageTopRight {
+    width: 31.9px;
+    border-radius: 50%;
+    height: 30px; }
+  .header .position-right {
+    position: absolute;
+    right: 20px; }
