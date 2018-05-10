@@ -17,9 +17,8 @@ class Settings extends Component {
     errors: {
       firstName: '',
       lastName: '',
+      email: '',
       designation: '',
-      newPassword: '',
-      currentPassword: '',
     }
   }
 
@@ -37,15 +36,65 @@ class Settings extends Component {
 
   onChange = (e) => {
     this.setState({
+      errors: {
+        ...this.state.errors,
+        [e.target.name]: this.validate(e.target.name, e.target.value),
+      },
       fields: {
         ...this.state.fields,
         [e.target.name]: e.target.value,
       }
-    })
+    });
   }
 
-  onAddUser = () => {
+  validate = (name, value) => {
+    switch (name) {
+      case 'firstName':
+        if (!value) {
+          return 'First name is Required';
+        } else {
+          return '';
+        }
+      case 'lastName':
+        if (!value) {
+          return 'Last name is Required';
+        } else {
+          return '';
+        }
+      case 'email':
+        if (!value) {
+          return 'Email is Required';
+        } else if (!value.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)) {
+          return 'Email is invalid';
+        } else {
+          return '';
+        }
+      case 'designation':
+        if (!value) {
+          return 'Designation is Required';
+        } else {
+          return '';
+        }
+      default: {
+        return ''
+      }
+    }
+  };
+
+  onAddUser = (ev) => {
+    ev.preventDefault();
     const { fields } = this.state;
+    let validationErrors = {};
+    Object.keys(fields).forEach(name => {
+      const error = this.validate(name, fields[name]);
+      if (error && error.length > 0) {
+        validationErrors[name] = error;
+      }
+    });
+    if (Object.keys(validationErrors).length > 0) {
+      this.setState({errors: validationErrors});
+      return;
+    }
     addUser(fields).then(() => {
       this.getUsers();
       alert('User added successfully.');

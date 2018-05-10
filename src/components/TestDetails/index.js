@@ -13,7 +13,7 @@ class TestDetails extends Component {
     testDetails: {},
     pages: 0,
     startIndex: 0,
-    endIndex: 2,
+    endIndex: 3,
     currentPage: 1,
   }
 
@@ -29,7 +29,7 @@ class TestDetails extends Component {
     getTestDetailsById(testId).then( res => {
       this.setState({
         testDetails: res || {},
-        pages: (res.MCQQuestions && Math.ceil(res.MCQQuestions.length/2)) || 0,
+        pages: (res.MCQQuestions && Math.ceil(res.MCQQuestions.length/3)) || 0,
       })
     }).catch(err => console.log(err));
   }
@@ -43,8 +43,8 @@ class TestDetails extends Component {
   }
 
   pagination = (currentPage) => {
-     const startIndex = currentPage*2 - 2;
-     const endIndex  = currentPage*2;
+     const startIndex = currentPage*3 - 3;
+     const endIndex  = currentPage*3;
      this.setState({
        startIndex,
        currentPage,
