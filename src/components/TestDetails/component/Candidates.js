@@ -13,8 +13,8 @@ const Candidates = props => {
           <thead>
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Candidates Name</th>
-              <th scope="col">Candidates Email</th>
+              <th scope="col">Candidate Name</th>
+              <th scope="col">Candidate Email</th>
               <th scope="col">Test Name</th>
               <th scope="col">Assign Date</th>
               <th scope="col">Completion Date</th>

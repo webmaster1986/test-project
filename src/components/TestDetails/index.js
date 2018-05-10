@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Link from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { getTestDetailsById, getCandidates } from "../../utils/_data"
 import './TestDetails.css'
 import Candidates from "./component/Candidates";
@@ -73,7 +73,7 @@ class TestDetails extends Component {
         {testDetails.id ?
           <div className='row'>
             <div className='col-sm-12 col-md-12 col-xs-12 mb-3'>
-              <a  href={`/tests`} className="mr-3 text-secondary" title="View Details"><i className="fa fa-angle-left" /> Back</a>
+              <Link  to={`/tests`} className="mr-3 text-secondary" title="View Details"><i className="fa fa-angle-left" /> Back</Link>
             </div>
             <div className="col-sm-8 col-md-8 col-xs-12">
               <div className='row'>
