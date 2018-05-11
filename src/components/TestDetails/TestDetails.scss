@@ -1,11 +1,15 @@
 .test-details {
   font-size: 90% !important;
-  .btn-rounded {
-    border-radius: 50px;
-  }
   .invites-bg {
     border: solid 1px #1a1746;
     color: #1a1746;
+  }
+  .new-test {
+    .card {
+      .card-body {
+        padding: 150px;
+      }
+    }
   }
   .card {
     border-radius: 4px;
@@ -63,6 +67,18 @@
               text-decoration: underline;
             }
           }
+        }
+      }
+    }
+  }
+  .modal-body {
+    .form-group {
+      .container {
+        position: relative;
+        .checkmark {
+          position: absolute;
+          bottom: 6px;
+          right: 10px;
         }
       }
     }

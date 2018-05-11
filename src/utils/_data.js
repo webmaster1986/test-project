@@ -36,22 +36,40 @@ export async function getOverviewText() {
 
 // Test Details Api
 export async function getTestDetailsById(testId) {
-  const url = utils.getURL(`testDetails/${testId}`);
+  const url = utils.getURL(`testDetails?testId=${testId}`);
   const res = await axios.get(url, config);
   return res.data;
 }
 
 
 // Test Api
-export async function deleteTest(testId) {
+/*export async function deleteTest(testId) {
   const url = utils.getURL(`tests/${testId}`);
   const res = await axios.delete(url, config);
   return res.data;
-}
+}*/
 
 export async function getTests() {
   const url = utils.getURL(`tests`);
   const res = await axios.get(url, config);
+  return res.data;
+}
+
+export async function getTestById(testId) {
+  const url = utils.getURL(`tests/${testId}`);
+  const res = await axios.get(url, config);
+  return res.data;
+}
+
+export async function addTest(data) {
+  const url = utils.getURL('tests');
+  const res = await axios.post(url, data, config);
+  return res.data;
+}
+
+export async function deleteTest(testId) {
+  const url = utils.getURL(`tests/${testId}`);
+  const res = await axios.delete(url, config);
   return res.data;
 }
 
@@ -60,5 +78,19 @@ export async function getTests() {
 export async function getCandidates() {
   const url = utils.getURL(`candidates`);
   const res = await axios.get(url, config);
+  return res.data;
+}
+
+// Question
+
+export async function addNewTestDetails(data) {
+  const url = utils.getURL('testDetails');
+  const res = await axios.post(url, data, config);
+  return res.data;
+}
+
+export async function updateTestDetails(data) {
+  const url = utils.getURL(`testDetails/${data.id}`);
+  const res = await axios.put(url, data, config);
   return res.data;
 }
