@@ -33,120 +33,19 @@ class OverView extends Component {
   }
 
   onChange = (e) => {
-    if(e.target.name === "correctAnswer") {
-      this.setState({
-        fields: {
-          ...this.state.fields,
-          [e.target.name]: e.target.id,
-        }
-      });
-    } else {
-      this.setState({
-        errors: {
-          ...this.state.errors,
-          [e.target.name]: this.isTestValidate(e.target.name, e.target.value),
-        },
-        fields: {
-          ...this.state.fields,
-          [e.target.name]: e.target.value,
-        }
-      });
-    }
+    this.setState({
+      errors: {
+        ...this.state.errors,
+        [e.target.name]: this.validate(e.target.name, e.target.value),
+      },
+      fields: {
+        ...this.state.fields,
+        [e.target.name]: e.target.value,
+      }
+    });
   }
 
   validate = (name, value) => {
-    switch (name) {
-      case 'question':
-        if (!value) {
-          return 'Question is Required';
-        } else {
-          return '';
-        }
-      case 'optionA':
-        if (!value) {
-          return 'Option A is Required';
-        } else {
-          return '';
-        }
-      case 'optionB':
-        if (!value) {
-          return 'Option B is Required';
-        } else {
-          return '';
-        }
-      case 'optionC':
-        if (!value) {
-          return 'Option C is Required';
-        } else {
-          return '';
-        }
-      case 'optionD':
-        if (!value) {
-          return 'Option D is Required';
-        } else {
-          return '';
-        }
-      case 'correctAnswer':
-        if (!value) {
-          return 'Please choose one correct Answer';
-        } else {
-          return '';
-        }
-      default: {
-        return ''
-      }
-    }
-  };
-
-  /*onSave = (status) => {
-    const { fields } = this.state;
-    let validationErrors = {};
-    Object.keys(fields).forEach(name => {
-      const error = this.validate(name, fields[name]);
-      if (error && error.length > 0) {
-        validationErrors[name] = error;
-      }
-    });
-    if (Object.keys(validationErrors).length > 0) {
-      this.setState({errors: validationErrors});
-      return;
-    }
-    const Question = {
-      "Question": fields.question,
-      "Answers":[
-        {
-          "answertext": fields.optionA,
-          "correctAnswer": fields.correctAnswer === "optionA" ? "true" : "false",
-        },
-        {
-          "answertext": fields.optionB,
-          "correctAnswer": fields.correctAnswer === "optionB" ? "true" : "false",
-        },
-        {
-          "answertext": fields.optionC,
-          "correctAnswer": fields.correctAnswer === "optionC" ? "true" : "false",
-        },
-        {
-          "answertext": fields.optionD,
-          "correctAnswer": fields.correctAnswer === "optionD" ? "true" : "false",
-        }]
-    };
-    console.log(Question);
-    this.handleModal();
-    /!*addQuestion(Question).then(() => {
-      if(status === "save") {
-        this.handleModal();
-      }
-      if(status === "saveAndNew") {
-        this.setState({
-          ...initialState,
-        })
-      }
-    })*!/
-
-  }*/
-
-  isTestValidate = (name, value) => {
     switch (name) {
       case 'testName':
         if (!value) {
@@ -170,7 +69,7 @@ class OverView extends Component {
     const { fields, tests} = this.state;
     let validationErrors = {};
     Object.keys(fields).forEach(name => {
-      const error = this.isTestValidate(name, fields[name]);
+      const error = this.validate(name, fields[name]);
       if (error && error.length > 0) {
         validationErrors[name] = error;
       }

@@ -1,0 +1,35 @@
+.invitation {
+  .disabled {
+    background: #ffffff;
+  }
+  ul {
+    &.pages {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      li {
+        display: inline-block;
+        padding: 1px 6px;
+        border: solid 1px #1d1d1c1f;
+        cursor: pointer;
+        &.active {
+          border: 1px solid #007bff;
+          color: #007bff;
+        }
+      }
+    }
+  }
+  .form-group {
+    .container {
+      position: relative;
+      input:checked ~ .checkmark {
+        background-color: #007bff!important;
+      }
+      .checkmark {
+        position: absolute;
+        bottom: 6px;
+        right: 10px;
+      }
+    }
+  }
+}

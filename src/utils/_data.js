@@ -94,3 +94,17 @@ export async function updateTestDetails(data) {
   const res = await axios.put(url, data, config);
   return res.data;
 }
+
+// invite candidate
+
+export async function inviteCandidateForTest(data) {
+  const url = utils.getURL('invitedCandidates');
+  const res = await axios.post(url, data, config);
+  return res.data;
+}
+
+export async function getCandidateInvitation(examId) {
+  const url = utils.getURL(`invitedCandidates?examId=${examId}`);
+  const res = await axios.get(url, config);
+  return res.data;
+}

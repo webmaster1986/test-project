@@ -69,6 +69,11 @@
       "testName": "test7",
       "description": "description 7",
       "id": 7
+    },
+    {
+      "testName": "sdf",
+      "description": "dsfsdf",
+      "id": 8
     }
   ],
   "testDetails": [
@@ -828,6 +833,16 @@
       "assignDate": "13/02/2018",
       "completionDate": "23/02/2018",
       "id": 4
+    }
+  ],
+  "invitedCandidates": [
+    {
+      "candidateName": "tester 1",
+      "candidateEmail": "tester1@gmail.com",
+      "candidateId": 1,
+      "testId": 7,
+      "examId": "gbaoblay7u",
+      "id": 1
     }
   ]
 }

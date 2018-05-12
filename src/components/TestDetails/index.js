@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import { getTestDetailsById, getCandidates, getTestById, addNewTestDetails, updateTestDetails } from "../../utils/_data"
+import { getTestDetailsById, getCandidates, getTestById, addNewTestDetails, updateTestDetails, inviteCandidateForTest } from "../../utils/_data"
 import './TestDetails.css'
 import Candidates from "./component/Candidates";
 import QuestionList from "./component/QuestionList";
@@ -8,6 +8,7 @@ import CodingContent from "./component/CodingContent";
 import CreateMCQModal from "./component/CreateMCQModal";
 import CreateCodingModal from "./component/CreateCodingModal";
 import NewTestContent from "./component/NewTestContent";
+import InviteCandidateModal from "./component/InviteCandidateModal";
 
 const initialState = {
   fields: {
@@ -42,6 +43,10 @@ class TestDetails extends Component {
   state = {
     ...initialState,
     addTest,
+    inviteCandidate: {
+      candidateName: "",
+      candidateEmail: "",
+    },
     codingName: "",
     codingQuestion: "",
     users: [],
@@ -54,6 +59,7 @@ class TestDetails extends Component {
     newTest: false,
     MCQModal: false,
     codingModal: false,
+    inviteModal: false,
     loading: true,
   }
 
@@ -145,6 +151,27 @@ class TestDetails extends Component {
     })
   }
 
+  onInviteChange = (e) => {
+    const { candidates } = this.state;
+    let selectedCandidate = "";
+    if(e.target.name === "candidateId") {
+      selectedCandidate = candidates.filter(candidate => candidate.id === parseInt(e.target.value));
+      if(selectedCandidate.length) {
+        this.setState({
+          errors: {
+            ...this.state.errors,
+            [e.target.name]: this.validate(e.target.name, e.target.value),
+          },
+          inviteCandidate: {
+            candidateName: `${selectedCandidate[0].firstName} ${selectedCandidate[0].lastName}`,
+            candidateEmail: selectedCandidate[0].email,
+            candidateId: selectedCandidate[0].id,
+          }
+        })
+      }
+    }
+
+  }
   validate = (name, value) => {
     switch (name) {
       case 'question':
@@ -192,6 +219,18 @@ class TestDetails extends Component {
       case 'codingName':
         if (!value) {
           return 'Name is Required';
+        } else {
+          return '';
+        }
+      case 'candidateName':
+        if (!value) {
+          return 'Candidate Name is Required';
+        } else {
+          return '';
+        }
+      case 'candidateEmail':
+        if (!value) {
+          return 'Candidate email is Required';
         } else {
           return '';
         }
@@ -303,6 +342,33 @@ class TestDetails extends Component {
     }
   }
 
+  onInviteSave = () => {
+    const { inviteCandidate, testDetails } = this.state;
+    let validationErrors = {};
+    console.log(inviteCandidate);
+    Object.keys(inviteCandidate).forEach(name => {
+      const error = this.validate(name, inviteCandidate[name]);
+      if (error && error.length > 0) {
+        validationErrors[name] = error;
+      }
+    });
+    if (Object.keys(validationErrors).length > 0) {
+      this.setState({errors: validationErrors});
+      return;
+    }
+    inviteCandidate.testId = testDetails.id;
+    inviteCandidate.examId = Math.random().toString(36).replace('0.', '');
+    inviteCandidateForTest(inviteCandidate).then((res) => {
+      if(res) {
+        this.setState({
+          inviteCandidate: {
+            link: `http://${window.location.host}/${res.candidateName.replace(' ','_')}/${res.examId}`
+          }
+        })
+      }
+    })
+  }
+
   handleMCQModal = () => {
     this.setState({
       MCQModal: !this.state.MCQModal,
@@ -319,8 +385,19 @@ class TestDetails extends Component {
     })
   }
 
+  handleInviteModal = () => {
+    this.setState({
+      inviteModal: !this.state.inviteModal,
+      inviteCandidate: {
+        candidateName: "",
+        candidateEmail: "",
+      },
+      errors: {},
+    })
+  }
+
   render() {
-    const {testDetails, candidates, startIndex, endIndex, currentPage, pages, newTest, MCQModal, codingModal} = this.state;
+    const {testDetails, candidates, startIndex, endIndex, currentPage, pages, newTest, MCQModal, codingModal, inviteModal} = this.state;
     const queCount = ['A', 'B', 'C', 'D', 'E', 'F'];
     const questionByPage = (testDetails.MCQQuestions && testDetails.MCQQuestions.length && testDetails.MCQQuestions.slice(startIndex, endIndex)) || [];
     const pageContents = [];
@@ -336,6 +413,7 @@ class TestDetails extends Component {
       <div className="test-details mb-5 mt-4">
         <CreateMCQModal isModal={MCQModal} state={this.state} onChange={this.onChange} onSave={this.onSave} handleModal={this.handleMCQModal}/>
         <CreateCodingModal isModal={codingModal} state={this.state} onChange={this.onCodingChange} onSave={this.onCodingSave} handleModal={this.handleCodingModal} />
+        <InviteCandidateModal isModal={inviteModal} state={this.state} onChange={this.onInviteChange} onSave={this.onInviteSave} handleModal={this.handleInviteModal} />
         <div className='row'>
             <div className='col-sm-12 col-md-12 col-xs-12 mb-3'>
               <Link  to={`/tests`} className="mr-3 text-secondary" title="View Details"><i className="fa fa-angle-left" /> Back</Link>
@@ -352,7 +430,7 @@ class TestDetails extends Component {
               </div>
             </div>
             <div className="col-sm-4 col-md-4 col-xs-12 text-right">
-              <button type="button" className='btn btn-success btn-rounded'>Invite Candidate</button>
+              <button type="button" className='btn btn-success btn-rounded' onClick={this.handleInviteModal}>Invite Candidate</button>
             </div>
           </div>
           {
