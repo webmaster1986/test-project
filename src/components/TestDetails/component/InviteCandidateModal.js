@@ -20,19 +20,12 @@ const InviteCandidateModal = props => {
           <div className="form">
             <div className="form-group">
               <label className="col-form-label"><b>Candidate Name</b></label>
-              <select className="form-control" name="candidateId" value={state.inviteCandidate.candidateId} onChange={onChange}>
-                <option value="">--Select--</option>
-                {
-                  state.candidates.map(candidate => (
-                    <option key={candidate.id} value={candidate.id}>{candidate.firstName} {candidate.lastName}</option>
-                  ))
-                }
-              </select>
+              <input name="candidateName" value={state.inviteCandidate.candidateName} onChange={onChange} className="form-control"/>
               <small className="text-danger">{state.errors.candidateName}</small>
             </div>
             <div className="form-group">
               <label className="col-form-label"><b>Candidate Email</b></label>
-              <input name="candidateEmail" value={state.inviteCandidate.candidateEmail} onChange={onChange} disabled className="form-control"/>
+              <input name="candidateEmail" value={state.inviteCandidate.candidateEmail} onChange={onChange} className="form-control"/>
               <small className="text-danger">{state.errors.candidateEmail}</small>
             </div>
           </div>

@@ -22,7 +22,7 @@ class App extends Component {
               <Route path="/settings" component={Settings}/>
               <Route path="/tests" component={Tests}/>
               <Route path="/testDetails/:testId" component={TestDetails}/>
-              <Route path="/:candidateName/:examId" component={Invitation}/>
+              <Route path="/test/:testName/:examId" component={Invitation}/>
               <Route path="/" component={OverView}/>
             </Switch>
           </div>

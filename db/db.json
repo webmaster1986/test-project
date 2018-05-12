@@ -81,7 +81,7 @@
       "testName": "test1",
       "testId": 1,
       "id": 1,
-      "MCQCount": 4,
+      "MCQCount": 6,
       "CodingTestCount": 1,
       "CodingTests": [
         {
@@ -95,19 +95,19 @@
           "Answers": [
             {
               "answertext": "weakly typed",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "strongly typed",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "moderately typed",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "none of above",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         },
@@ -116,19 +116,19 @@
           "Answers": [
             {
               "answertext": "class A {abstract void unfinished() {}}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "class A {abstract void unfinished();}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "abstract class A {abstract void unfinished();}",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "public class abstract A {abstract void unfinished();}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         },
@@ -137,19 +137,19 @@
           "Answers": [
             {
               "answertext": "weakly typed",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "strongly typed",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "moderately typed",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "none of above",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         },
@@ -158,19 +158,19 @@
           "Answers": [
             {
               "answertext": "class A {abstract void unfinished() {}}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "class A {abstract void unfinished();}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "abstract class A {abstract void unfinished();}",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "public class abstract A {abstract void unfinished();}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         },
@@ -179,19 +179,19 @@
           "Answers": [
             {
               "answertext": "class A {abstract void unfinished() {}}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "class A {abstract void unfinished();}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "abstract class A {abstract void unfinished();}",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "public class abstract A {abstract void unfinished();}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         },
@@ -200,19 +200,19 @@
           "Answers": [
             {
               "answertext": "weakly typed",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "strongly typed",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "moderately typed",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "none of above",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         }
@@ -236,19 +236,19 @@
           "Answers": [
             {
               "answertext": "weakly typed",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "strongly typed",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "moderately typed",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "none of above",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         },
@@ -257,19 +257,19 @@
           "Answers": [
             {
               "answertext": "class A {abstract void unfinished() {}}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "class A {abstract void unfinished();}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "abstract class A {abstract void unfinished();}",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "public class abstract A {abstract void unfinished();}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         },
@@ -278,19 +278,19 @@
           "Answers": [
             {
               "answertext": "weakly typed",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "strongly typed",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "moderately typed",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "none of above",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         },
@@ -299,19 +299,19 @@
           "Answers": [
             {
               "answertext": "class A {abstract void unfinished() {}}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "class A {abstract void unfinished();}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "abstract class A {abstract void unfinished();}",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "public class abstract A {abstract void unfinished();}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         },
@@ -320,19 +320,19 @@
           "Answers": [
             {
               "answertext": "class A {abstract void unfinished() {}}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "class A {abstract void unfinished();}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "abstract class A {abstract void unfinished();}",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "public class abstract A {abstract void unfinished();}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         },
@@ -341,19 +341,19 @@
           "Answers": [
             {
               "answertext": "weakly typed",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "strongly typed",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "moderately typed",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "none of above",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         }
@@ -377,19 +377,19 @@
           "Answers": [
             {
               "answertext": "weakly typed",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "strongly typed",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "moderately typed",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "none of above",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         },
@@ -398,19 +398,19 @@
           "Answers": [
             {
               "answertext": "class A {abstract void unfinished() {}}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "class A {abstract void unfinished();}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "abstract class A {abstract void unfinished();}",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "public class abstract A {abstract void unfinished();}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         },
@@ -419,19 +419,19 @@
           "Answers": [
             {
               "answertext": "weakly typed",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "strongly typed",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "moderately typed",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "none of above",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         },
@@ -440,19 +440,19 @@
           "Answers": [
             {
               "answertext": "class A {abstract void unfinished() {}}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "class A {abstract void unfinished();}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "abstract class A {abstract void unfinished();}",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "public class abstract A {abstract void unfinished();}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         },
@@ -461,19 +461,19 @@
           "Answers": [
             {
               "answertext": "class A {abstract void unfinished() {}}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "class A {abstract void unfinished();}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "abstract class A {abstract void unfinished();}",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "public class abstract A {abstract void unfinished();}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         },
@@ -482,19 +482,19 @@
           "Answers": [
             {
               "answertext": "weakly typed",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "strongly typed",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "moderately typed",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "none of above",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         }
@@ -504,7 +504,7 @@
       "testName": "test1",
       "testId": 4,
       "id": 4,
-      "MCQCount": 4,
+      "MCQCount": 6,
       "CodingTestCount": 1,
       "CodingTests": [
         {
@@ -518,19 +518,19 @@
           "Answers": [
             {
               "answertext": "weakly typed",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "strongly typed",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "moderately typed",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "none of above",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         },
@@ -539,19 +539,19 @@
           "Answers": [
             {
               "answertext": "class A {abstract void unfinished() {}}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "class A {abstract void unfinished();}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "abstract class A {abstract void unfinished();}",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "public class abstract A {abstract void unfinished();}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         },
@@ -560,19 +560,19 @@
           "Answers": [
             {
               "answertext": "weakly typed",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "strongly typed",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "moderately typed",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "none of above",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         },
@@ -581,19 +581,19 @@
           "Answers": [
             {
               "answertext": "class A {abstract void unfinished() {}}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "class A {abstract void unfinished();}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "abstract class A {abstract void unfinished();}",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "public class abstract A {abstract void unfinished();}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         },
@@ -602,19 +602,19 @@
           "Answers": [
             {
               "answertext": "class A {abstract void unfinished() {}}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "class A {abstract void unfinished();}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "abstract class A {abstract void unfinished();}",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "public class abstract A {abstract void unfinished();}",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         },
@@ -623,19 +623,19 @@
           "Answers": [
             {
               "answertext": "weakly typed",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "strongly typed",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "moderately typed",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "none of above",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         }
@@ -652,19 +652,19 @@
           "Answers": [
             {
               "answertext": "xzXxzxx",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "cxvcxvcxv",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "frdfds",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "dasfds",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         },
@@ -673,19 +673,19 @@
           "Answers": [
             {
               "answertext": "adssadsadsad",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "xzxc",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "cxzc",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "zxczxc",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         },
@@ -694,19 +694,19 @@
           "Answers": [
             {
               "answertext": "cxczxc",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "xvc",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "vcxv",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "cxcv",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         },
@@ -715,19 +715,19 @@
           "Answers": [
             {
               "answertext": "zxsdasd",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "xczxc",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "dsadsad",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "zZXZX",
-              "correctAnswer": "true"
+              "correctAnswer": true
             }
           ]
         },
@@ -736,19 +736,19 @@
           "Answers": [
             {
               "answertext": "cvx",
-              "correctAnswer": "true"
+              "correctAnswer": true
             },
             {
               "answertext": "vcxvcxv",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "fsdf",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "dfvcvvcxvcxv",
-              "correctAnswer": "false"
+              "correctAnswer": false
             }
           ]
         },
@@ -757,19 +757,19 @@
           "Answers": [
             {
               "answertext": "rdfvd",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "cvcxv ",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "vcxvcxv",
-              "correctAnswer": "false"
+              "correctAnswer": false
             },
             {
               "answertext": "cxZXZxZX",
-              "correctAnswer": "true"
+              "correctAnswer": true
             }
           ]
         }
@@ -837,12 +837,12 @@
   ],
   "invitedCandidates": [
     {
-      "candidateName": "tester 1",
-      "candidateEmail": "tester1@gmail.com",
-      "candidateId": 1,
-      "testId": 7,
-      "examId": "gbaoblay7u",
+      "candidateName": "mayur",
+      "candidateEmail": "mayurgodh@gmail.com",
+      "testId": 5,
+      "examId": "1xr4jz1lxcq",
       "id": 1
     }
-  ]
+  ],
+  "candidateAnswers": []
 }

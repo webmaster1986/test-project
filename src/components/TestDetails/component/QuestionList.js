@@ -25,7 +25,7 @@ const QuestionList = props => {
                     <p className='question text-dark'><span>{startIndex+i+1}.</span> {que.Question}</p>
                     <ul>
                       {que.Answers.map((ans,j) =>(
-                        <li key={j} className={ans.correctAnswer && ans.correctAnswer.toString() === 'true' ? 'text-success' : ''}><span>{queCount[j]}.</span> {ans.answertext} </li>
+                        <li key={j} className={ans.correctAnswer ? 'text-success' : ''}><span>{queCount[j]}.</span> {ans.answertext} </li>
                       ))}
                     </ul>
                   </div>

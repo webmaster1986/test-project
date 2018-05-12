@@ -108,3 +108,24 @@ export async function getCandidateInvitation(examId) {
   const res = await axios.get(url, config);
   return res.data;
 }
+
+
+// candidate answer
+
+export async function addCandidateAnswer(candidate) {
+  const url = utils.getURL(`candidateAnswers`);
+  const res = await axios.post(url, candidate, config);
+  return res.data;
+}
+
+export async function updateCandidateAnswer(candidate) {
+  const url = utils.getURL(`candidateAnswers/${candidate.id}`);
+  const res = await axios.put(url, candidate, config);
+  return res.data;
+}
+
+export async function getCandidateAnswer(examId) {
+  const url = utils.getURL(`candidateAnswers?${examId}`);
+  const res = await axios.get(url, config);
+  return res.data;
+}

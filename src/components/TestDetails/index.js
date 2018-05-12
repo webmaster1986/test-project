@@ -65,6 +65,7 @@ class TestDetails extends Component {
 
   componentWillMount() {
     const testId = (this.props.history.location && this.props.history.location.pathname.split('/')[2]) || '';
+
     if(testId) {
       this.getTestDetails(testId);
     }
@@ -152,25 +153,16 @@ class TestDetails extends Component {
   }
 
   onInviteChange = (e) => {
-    const { candidates } = this.state;
-    let selectedCandidate = "";
-    if(e.target.name === "candidateId") {
-      selectedCandidate = candidates.filter(candidate => candidate.id === parseInt(e.target.value));
-      if(selectedCandidate.length) {
-        this.setState({
-          errors: {
-            ...this.state.errors,
-            [e.target.name]: this.validate(e.target.name, e.target.value),
-          },
-          inviteCandidate: {
-            candidateName: `${selectedCandidate[0].firstName} ${selectedCandidate[0].lastName}`,
-            candidateEmail: selectedCandidate[0].email,
-            candidateId: selectedCandidate[0].id,
-          }
-        })
+    this.setState({
+      errors: {
+        ...this.state.errors,
+        [e.target.name]: this.validate(e.target.name, e.target.value),
+      },
+      inviteCandidate: {
+        ...this.state.inviteCandidate,
+        [e.target.name]: e.target.value,
       }
-    }
-
+    })
   }
   validate = (name, value) => {
     switch (name) {
@@ -230,7 +222,9 @@ class TestDetails extends Component {
         }
       case 'candidateEmail':
         if (!value) {
-          return 'Candidate email is Required';
+          return 'Email is Required';
+        } else if (!value.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)) {
+          return 'Email is invalid';
         } else {
           return '';
         }
@@ -259,19 +253,19 @@ class TestDetails extends Component {
       "Answers":[
         {
           "answertext": fields.optionA,
-          "correctAnswer": fields.correctAnswer === "optionA" ? "true" : "false",
+          "correctAnswer": fields.correctAnswer === "optionA",
         },
         {
           "answertext": fields.optionB,
-          "correctAnswer": fields.correctAnswer === "optionB" ? "true" : "false",
+          "correctAnswer": fields.correctAnswer === "optionB",
         },
         {
           "answertext": fields.optionC,
-          "correctAnswer": fields.correctAnswer === "optionC" ? "true" : "false",
+          "correctAnswer": fields.correctAnswer === "optionC",
         },
         {
           "answertext": fields.optionD,
-          "correctAnswer": fields.correctAnswer === "optionD" ? "true" : "false",
+          "correctAnswer": fields.correctAnswer === "optionD",
         }]
     };
 
@@ -345,7 +339,6 @@ class TestDetails extends Component {
   onInviteSave = () => {
     const { inviteCandidate, testDetails } = this.state;
     let validationErrors = {};
-    console.log(inviteCandidate);
     Object.keys(inviteCandidate).forEach(name => {
       const error = this.validate(name, inviteCandidate[name]);
       if (error && error.length > 0) {
@@ -362,7 +355,7 @@ class TestDetails extends Component {
       if(res) {
         this.setState({
           inviteCandidate: {
-            link: `http://${window.location.host}/${res.candidateName.replace(' ','_')}/${res.examId}`
+            link: `http://${window.location.host}/test/${testDetails.testName.replace(' ','_')}/${res.examId}`
           }
         })
       }

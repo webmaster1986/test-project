@@ -1,4 +1,5 @@
 .invitation {
+  font-size: 80% !important;
   .disabled {
     background: #ffffff;
   }
@@ -19,15 +20,18 @@
       }
     }
   }
+  .code-content {
+    height: 430px;
+  }
   .form-group {
-    .container {
-      position: relative;
+     position: relative;
+    .check-container {
       input:checked ~ .checkmark {
         background-color: #007bff!important;
       }
       .checkmark {
         position: absolute;
-        bottom: 6px;
+        top: 6px;
         right: 10px;
       }
     }
