@@ -11,6 +11,8 @@ class Invitation extends Component {
     visibleQuestionIndex: 0,
     errors: {},
     isNew: false,
+    isMCQ: false,
+    isCodingText: false,
   }
 
   componentWillMount() {
@@ -39,9 +41,11 @@ class Invitation extends Component {
            getTestDetailsById(candidate.testId).then(exam => {
               if(exam.length) {
                 exam = exam[0];
-                if (!candidateAnswer.MCQQuestions && (exam.MCQQuestions && exam.MCQQuestions.length)) {
+                const isMCQ = !!exam.MCQCount;
+                const isCodingText = !!exam.CodingTestCount;
+                if (!candidateAnswer.MCQQuestions && isMCQ) {
                   test = 1
-                } else if (!candidateAnswer.CodingTests || (exam.CodingTestCount && exam.CodingTestCount.length)) {
+                } else if (!candidateAnswer.CodingTests && isCodingText) {
                   test = 2
                 } else if(candidateAnswer.MCQQuestions && candidateAnswer.CodingTests) {
                   test = 3
@@ -51,8 +55,8 @@ class Invitation extends Component {
                   exam,
                   test,
                   isNew,
-                  isMCQ: !!exam.MCQQuestions,
-                  isCodingText: !!exam.CodingTestCount,
+                  isMCQ,
+                  isCodingText
                 })
               }
             }).catch(err => console.log(err));
@@ -121,7 +125,7 @@ class Invitation extends Component {
   }
 
   onSave = (test) => {
-    let { exam, candidate, isNew } = this.state;
+    let { exam, candidate, isNew, isMCQ, isCodingText } = this.state;
     let message = "";
     if(test === "MCQ") {
       let filledList = [];
@@ -168,9 +172,9 @@ class Invitation extends Component {
     if(isNew) {
       delete candidate['id'];
       addCandidateAnswer(candidate).then(candidateAnswer => {
-        if (!candidateAnswer.MCQQuestions && this.state.isMCQ) {
+        if (!candidateAnswer.MCQQuestions && isMCQ) {
           test = 1
-        } else if (!candidateAnswer.CodingTests && this.state.isCodingText) {
+        } else if (!candidateAnswer.CodingTests && isCodingText) {
           test = 2
         } else {
           test = 3
@@ -184,9 +188,9 @@ class Invitation extends Component {
       }).catch(err => console.log(err));
     } else {
       updateCandidateAnswer(candidate).then(candidateAnswer => {
-        if (!candidateAnswer.MCQQuestions && this.state.isMCQ) {
+        if (!candidateAnswer.MCQQuestions && isMCQ) {
           test = 1
-        } else if (!candidateAnswer.CodingTests && this.state.isCodingText) {
+        } else if (!candidateAnswer.CodingTests && isCodingText) {
           test = 2
         } else {
           test = 3
@@ -217,14 +221,14 @@ class Invitation extends Component {
               <ul className='text-left pages'>{ pageContents.map(x=>x) }</ul>
             </div>
           }
-          {test === 2 && isCodingText &&
+          {test === 2 && isMCQ &&
             <div className='col-sm-6 col-md-6 col-xs-12 mt-3'>
               <h3><b>1. MCQ Test</b> <i className="ml-2 fa fa-check text-success" aria-hidden="true" /></h3>
             </div>
           }
-          <div className='col-sm-6 col-md-6 col-xs-12 mt-5 text-right'>
+          <div className={`col-xs-12 mt-5 text-right ${isMCQ ? 'col-sm-6 col-md-6' : 'col-sm-12 col-md-12'}`}>
             {test === 1 && isMCQ && <button className="btn btn-primary" onClick={() => this.onSave('MCQ')}>Submit</button>}
-            {test === 2 && <button className="btn btn-primary" onClick={() => this.onSave('Coding')}>Submit</button>}
+            {test === 2 && isCodingText && <button className="btn btn-primary" onClick={() => this.onSave('Coding')}>Submit</button>}
           </div>
         </div>
         <div className="row new-test">
@@ -293,7 +297,7 @@ class Invitation extends Component {
                           <div className="card-body code-content">
                             <div className='row'>
                               <div className='col-md-12 col-sm-12 col-xs-12'>
-                                <h3><b>2. Coding Test</b></h3>
+                                <h3><b>{isMCQ ? '2.' : '1.'} Coding Test</b></h3>
                                 <h6 className="card-subtitle text-secondary mb-2"><b>{codingTest.CodingTestName}</b></h6>
                               </div>
                             </div>
