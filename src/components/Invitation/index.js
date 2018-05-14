@@ -45,7 +45,6 @@ class Invitation extends Component {
                 exam = exam[0];
                 const isMCQ = !!exam.MCQCount;
                 const isCodingText = !!exam.CodingTestCount;
-                debugger
                 if (!candidateAnswer.MCQQuestions && isMCQ) {
                   test = 1
                 } else if (!candidateAnswer.CodingTests && isCodingText) {

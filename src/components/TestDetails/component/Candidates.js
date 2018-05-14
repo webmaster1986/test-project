@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment'
 
 const Candidates = props => {
-  const { candidates } = props;
+  const { candidates, testName } = props;
   return (
     <div className='col-sm-12 col-md-12 col-xs-12 mt-3'>
       <div className='row candidates mt-2'>
@@ -16,6 +16,7 @@ const Candidates = props => {
               <th scope="col">ID</th>
               <th scope="col">Candidate Name</th>
               <th scope="col">Candidate Email</th>
+              <th scope="col">Link</th>
               <th scope="col">Assign Date</th>
               <th scope="col">Completion Date</th>
             </tr>
@@ -27,6 +28,7 @@ const Candidates = props => {
                 <td>{candidate.id}</td>
                 <td>{`${candidate.candidateName}`}</td>
                 <td>{candidate.candidateEmail}</td>
+                <td>test/{testName}/{candidate.examId}</td>
                 <td>{candidate.assignDate ? moment(candidate.assignDate).format('MM/DD/YYYY') : '---'}</td>
                 <td>{candidate.completionDate ? moment(candidate.completionDate).format('MM/DD/YYYY') : '---'}</td>
               </tr>

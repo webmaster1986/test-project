@@ -430,7 +430,7 @@ class TestDetails extends Component {
                   <div className="test-description text-muted">{testDetails.description}  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</div>
                 </div>
                 <div className="col-sm-2 col-md-2 col-xs-12">
-                  <div className='btn btn-default border-dark btn-rounded invites-bg'>4 Invites</div>
+                  <div className='btn btn-default border-dark btn-rounded invites-bg'>{candidates.length} Invites</div>
                 </div>
               </div>
             </div>
@@ -449,7 +449,7 @@ class TestDetails extends Component {
           }
           <hr/>
           <div className="row">
-            <Candidates candidates={candidates}/>
+            <Candidates candidates={candidates} testName={testDetails.testName}/>
           </div>
       </div>
     );
