@@ -172,6 +172,7 @@ class TestDetails extends Component {
       }
     })
   }
+
   validate = (name, value) => {
     switch (name) {
       case 'question':

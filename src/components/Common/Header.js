@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import logo from '../../assets/images/logo.png'
 import User from '../../assets/images/avatar.png'
 import './Header.css';
@@ -7,9 +6,9 @@ import './Header.css';
 const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light text-white header">
-      <Link className="navbar-brand" to={'/'}>
+      <a className="navbar-brand">
         <img alt='logo' src={logo} className='logo'/>
-      </Link>
+      </a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"/>

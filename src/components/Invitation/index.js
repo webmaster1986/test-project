@@ -45,7 +45,7 @@ class Invitation extends Component {
                 exam = exam[0];
                 const isMCQ = !!exam.MCQCount;
                 const isCodingText = !!exam.CodingTestCount;
-
+                debugger
                 if (!candidateAnswer.MCQQuestions && isMCQ) {
                   test = 1
                 } else if (!candidateAnswer.CodingTests && isCodingText) {
@@ -62,7 +62,7 @@ class Invitation extends Component {
                   isCodingText
                 })
               } else {
-               this.setState({test: 4})
+               this.setState({test: 5})
              }
             }).catch(err => console.log(err));
         }).catch(err => console.log(err));
@@ -260,7 +260,7 @@ class Invitation extends Component {
           {
             test === 5 &&
             <div className='col-sm-12 col-md-12 col-xs-12 mt-3 text-center'>
-              <h3><b>MCQ or Coding Test Not Exists.</b></h3>
+              <h3><b>MCQ or Coding Test Not Found.</b></h3>
             </div>
           }
         </div>
