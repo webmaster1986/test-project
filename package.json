@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "json-server": "^0.12.2",
+    "moment": "^2.22.1",
     "node-sass": "^4.9.0",
     "node-sass-chokidar": "^1.2.2",
     "npm-run-all": "^4.1.3",

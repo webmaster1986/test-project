@@ -2,12 +2,14 @@ import React, {Component} from 'react'
 import swal from 'sweetalert';
 import {getCandidateInvitation, getTestDetailsById, addCandidateAnswer, updateCandidateAnswer, getCandidateAnswer} from "../../utils/_data";
 import './invitation.css'
+import MCQTest from "./components/MCQTest";
+import CodingTest from "./components/CodingTest";
 
 class Invitation extends Component {
   state = {
     candidate: {},
     exam: {},
-    test: 1,
+    test: "",
     visibleQuestionIndex: 0,
     errors: {},
     isNew: false,
@@ -38,17 +40,18 @@ class Invitation extends Component {
         getCandidateAnswer(candidate.examId).then(answers => {
            let candidateAnswer = answers.length > 0 ? answers[0] : candidate;
            let isNew = !answers.length;
-           getTestDetailsById(candidate.testId).then(exam => {
-              if(exam.length) {
+           getTestDetailsById(candidateAnswer.testId).then(exam => {
+             if(exam.length) {
                 exam = exam[0];
                 const isMCQ = !!exam.MCQCount;
                 const isCodingText = !!exam.CodingTestCount;
+
                 if (!candidateAnswer.MCQQuestions && isMCQ) {
                   test = 1
                 } else if (!candidateAnswer.CodingTests && isCodingText) {
                   test = 2
-                } else if(candidateAnswer.MCQQuestions && candidateAnswer.CodingTests) {
-                  test = 3
+                } else if((!!candidateAnswer.MCQQuestions && isMCQ) || (!!candidateAnswer.CodingTests && isCodingText)  ) {
+                  test = 4
                 }
                 this.setState({
                   candidate: candidateAnswer,
@@ -58,7 +61,9 @@ class Invitation extends Component {
                   isMCQ,
                   isCodingText
                 })
-              }
+              } else {
+               this.setState({test: 4})
+             }
             }).catch(err => console.log(err));
         }).catch(err => console.log(err));
       }
@@ -67,7 +72,7 @@ class Invitation extends Component {
 
   onChange = (e) => {
     let { visibleQuestionIndex, exam} = this.state;
-    if(e.target.name === "correctAnswer") {
+    if(e.target.name === "correctAnswer" || (e.target.attributes["data-name"] &&e.target.attributes["data-name"].value === "correctAnswer")) {
       exam.MCQQuestions[visibleQuestionIndex].Answers.forEach((ans, i) => {
         if (parseInt(e.target.attributes["data-id"].value, 10) === i) {
           ans.chooseAnswer = true;
@@ -171,6 +176,7 @@ class Invitation extends Component {
 
     if(isNew) {
       delete candidate['id'];
+      candidate.completionDate = new Date();
       addCandidateAnswer(candidate).then(candidateAnswer => {
         if (!candidateAnswer.MCQQuestions && isMCQ) {
           test = 1
@@ -187,6 +193,7 @@ class Invitation extends Component {
         });
       }).catch(err => console.log(err));
     } else {
+      candidate.completionDate = new Date();
       updateCandidateAnswer(candidate).then(candidateAnswer => {
         if (!candidateAnswer.MCQQuestions && isMCQ) {
           test = 1
@@ -207,7 +214,6 @@ class Invitation extends Component {
 
   render() {
     const { exam, errors, visibleQuestionIndex, test, isMCQ, isCodingText } = this.state;
-    const options = ['A', 'B', 'C', 'D'];
     const pageContents = [];
     for (let i=0; i<exam.MCQCount; i++) {
       pageContents.push(<li key={i} className={`${i === visibleQuestionIndex ? 'active' : ''}`} onClick={() => this.onNextPrivious(i)}>{i+1}</li>)
@@ -233,101 +239,28 @@ class Invitation extends Component {
         </div>
         <div className="row new-test">
           {test === 1 && isMCQ &&
-            <div className='col-sm-12 col-md-12 col-xs-12 mt-3'>
-              <div className="card">
-                <div className="card-body text-center">
-                  <h4 className="text-dark">MCQ Test {visibleQuestionIndex + 1}/{exam.MCQCount}</h4>
-                  <small className="text-danger">{errors.MCQError}</small>
-                  <div className="row">
-                    {
-                      exam.MCQQuestions && exam.MCQQuestions.map((que, j) => {
-                        if (visibleQuestionIndex === j) {
-                          return (
-                            <div key={j} className='col-sm-12 col-md-6 offset-md-3 col-xs-12'>
-                              <p className="text-muted text-dark mt-4">
-                                {que.Question}
-                              </p>
-                              {
-                                que.Answers.map((option, i) => (
-                                  <div key={i} className={`form-group ${option.chooseAnswer ? 'text-success' : ''}`}>
-                                    <input
-                                      type="text"
-                                      value={`${options[i]}. ${option.answertext}`}
-                                      onChange={this.onChange}
-                                      disabled
-                                      className={`form-control disabled ${option.chooseAnswer ? 'text-primary border border-primary' : ''}`}
-                                    />
-                                    <label className="check-container">
-                                      <input type="checkbox" name="correctAnswer" data-id={i} id={`${options[i]}`}
-                                             onClick={this.onChange} checked={option.chooseAnswer}/>
-                                      <span className="checkmark text-primary"/>
-                                    </label>
-                                    <small className="text-danger">{errors[`option${options[i]}`]}</small>
-                                  </div>
-                                ))
-                              }
-                            </div>
-                          )
-                        }
-                      })
-                    }
-                    <div className="col-sm-12 col-md-6 offset-md-3 col-xs-12 mt-4 mb-4">
-                      <button className="btn bg-white border border-primary text-primary pl-5 pr-5 mr-2"
-                              onClick={() => this.onNextPrivious('Previous')} disabled={!visibleQuestionIndex}>Previous
-                      </button>
-                      <button className="btn bg-white border border-primary text-primary pl-5 pr-5"
-                              onClick={() => this.onNextPrivious('Next')}
-                              disabled={((exam.MCQCount - 1) === visibleQuestionIndex)}>Next
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <MCQTest visibleQuestionIndex={visibleQuestionIndex} exam={exam} onChange={this.onChange} onNextPrivious={this.onNextPrivious} errors={errors} />
           }
           {
             test === 2 && isCodingText &&
-            <div className="col-sm-12 col-md-12 col-xs-12 mt-3">
-              {
-                exam.CodingTests && exam.CodingTests.length ? exam.CodingTests.map((codingTest, i) => (
-                  <div  key={i}  className="row">
-                    <div className="col-sm-6 col-md-6 col-xs-12 mt-3">
-                      <div className="card">
-
-                          <div className="card-body code-content">
-                            <div className='row'>
-                              <div className='col-md-12 col-sm-12 col-xs-12'>
-                                <h3><b>{isMCQ ? '2.' : '1.'} Coding Test</b></h3>
-                                <h6 className="card-subtitle text-secondary mb-2"><b>{codingTest.CodingTestName}</b></h6>
-                              </div>
-                            </div>
-                            <p className="card-text text-muted" dangerouslySetInnerHTML={{ __html: codingTest.CodingTestDescription}} />
-                          </div>
-                      </div>
-                    </div>
-                    <div className="col-sm-6 col-md-6 col-xs-12 mt-3">
-                      <div className="card">
-                        <div className="card-body">
-                          <div className='row'>
-                            <div className='col-md-12 col-sm-12 col-xs-12'>
-                              <div className="form-group">
-                                <textarea name="codingTextAnswer" value={codingTest.codingTextAnswer || ''} placeholder="Code write here..." rows={15} onChange={this.onChange} className="form-control"/>
-                                <small className="text-danger">{errors.codingTextAnswer || ''}</small>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )): null
-              }
-            </div>
+            <CodingTest isMCQ={isMCQ} exam={exam} errors={errors} onChange={this.onChange}/>
           }
           {
             test === 3 &&
             <div className='col-sm-12 col-md-12 col-xs-12 mt-3 text-center'>
-              <h3><b>Test Already Given</b></h3>
+              <h3><b>Test is Completed.</b></h3>
+            </div>
+          }
+          {
+            test === 4 &&
+            <div className='col-sm-12 col-md-12 col-xs-12 mt-3 text-center'>
+              <h3><b>Test Already Given.</b></h3>
+            </div>
+          }
+          {
+            test === 5 &&
+            <div className='col-sm-12 col-md-12 col-xs-12 mt-3 text-center'>
+              <h3><b>MCQ or Coding Test Not Exists.</b></h3>
             </div>
           }
         </div>

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import { getTestDetailsById, getCandidates, getTestById, addNewTestDetails, updateTestDetails, inviteCandidateForTest } from "../../utils/_data"
+import { getTestDetailsById, getInvitedCandidates, getTestById, addNewTestDetails, updateTestDetails, inviteCandidateForTest, getAllCandidateAnswer } from "../../utils/_data"
 import './TestDetails.css'
 import Candidates from "./component/Candidates";
 import QuestionList from "./component/QuestionList";
@@ -68,8 +68,8 @@ class TestDetails extends Component {
 
     if(testId) {
       this.getTestDetails(testId);
+      this.getAllCandidates(testId)
     }
-    this.getAllCandidates()
   }
 
   getTestDetails = (testId) => {
@@ -102,11 +102,19 @@ class TestDetails extends Component {
     }).catch(err => console.log(err));
   }
 
-  getAllCandidates = () => {
-    getCandidates().then( res => {
-      this.setState({
-        candidates: res,
-      })
+  getAllCandidates = (testId) => {
+    getInvitedCandidates(testId).then( candidates => {
+      getAllCandidateAnswer().then( candidatesAnswers => {
+        candidates.forEach(candidate => {
+          const answers = candidatesAnswers.filter(answer => candidate.examId === answer.examId);
+          if(answers.length) {
+            candidate.completionDate = answers[0].completionDate;
+          }
+        });
+        this.setState({
+          candidates,
+        })
+      }).catch(err => console.log(err));
     }).catch(err => console.log(err));
   }
 
@@ -337,7 +345,7 @@ class TestDetails extends Component {
   }
 
   onInviteSave = () => {
-    const { inviteCandidate, testDetails } = this.state;
+    const { inviteCandidate, testDetails, candidates } = this.state;
     let validationErrors = {};
     Object.keys(inviteCandidate).forEach(name => {
       const error = this.validate(name, inviteCandidate[name]);
@@ -351,9 +359,12 @@ class TestDetails extends Component {
     }
     inviteCandidate.testId = testDetails.id;
     inviteCandidate.examId = Math.random().toString(36).replace('0.', '');
+    inviteCandidate.assignDate = new Date();
     inviteCandidateForTest(inviteCandidate).then((res) => {
       if(res) {
+        candidates.push(res);
         this.setState({
+          candidates,
           inviteCandidate: {
             link: `http://${window.location.host}/test/${testDetails.testName.replace(' ','_')}/${res.examId}`
           }

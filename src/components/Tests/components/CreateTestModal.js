@@ -10,6 +10,7 @@ const CreateTestModal = props => {
         <button type="button" className="close" onClick={handleModal}>&times;</button>
       </div>
       <div className="modal-body">
+        <p className="text-muted">This will save your new test. You can then create MCQ and Coding Test components as part of the test</p>
         <div className="form">
           <div className="form-group">
             <label className="col-form-label"><b>Test Name</b></label>
@@ -24,8 +25,7 @@ const CreateTestModal = props => {
         </div>
       </div>
       <div className="modal-footer">
-        <a className="btn btn-default btn-sm text-success" onClick={() => onSave("save")}>Save</a>
-        <button type="button" className="btn btn-success btn-sm" onClick={() => onSave("saveAndContinue")}>Save & Continue</button>
+        <button className="btn btn-success btn-sm" onClick={onSave}>Save Test</button>
       </div>
     </Modal>
   )

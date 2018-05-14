@@ -74,6 +74,16 @@
       "testName": "sdf",
       "description": "dsfsdf",
       "id": 8
+    },
+    {
+      "testName": "create new",
+      "description": "test",
+      "id": 9
+    },
+    {
+      "testName": "fdfddfdff",
+      "description": "d",
+      "id": 10
     }
   ],
   "testDetails": [
@@ -795,6 +805,100 @@
           "CodingTestDescription": "Write a Java program to check if a given number is prime or not. Remember, a prime number is a number which is not divisible by any other number e.g. 3, 5, 7, 11, 13, 17 etc. Be prepared for cross e.g. checking till the square root of a number etc"
         }
       ]
+    },
+    {
+      "id": 8,
+      "testName": "sdf",
+      "testId": 8,
+      "MCQCount": 4,
+      "MCQQuestions": [
+        {
+          "Question": "Test",
+          "Answers": [
+            {
+              "answertext": "1",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "2",
+              "correctAnswer": true
+            },
+            {
+              "answertext": "3",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "4",
+              "correctAnswer": false
+            }
+          ]
+        },
+        {
+          "Question": "test1",
+          "Answers": [
+            {
+              "answertext": "a",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "b",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "c",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "d",
+              "correctAnswer": true
+            }
+          ]
+        },
+        {
+          "Question": "test 3",
+          "Answers": [
+            {
+              "answertext": "aa",
+              "correctAnswer": true
+            },
+            {
+              "answertext": "bb",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "cc",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "dd",
+              "correctAnswer": false
+            }
+          ]
+        },
+        {
+          "Question": "test 4",
+          "Answers": [
+            {
+              "answertext": "11",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "22",
+              "correctAnswer": true
+            },
+            {
+              "answertext": "33",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "44",
+              "correctAnswer": false
+            }
+          ]
+        }
+      ],
+      "CodingTestCount": "",
+      "CodingTests": []
     }
   ],
   "candidates": [
@@ -837,12 +941,201 @@
   ],
   "invitedCandidates": [
     {
-      "candidateName": "mayur",
-      "candidateEmail": "mayurgodh@gmail.com",
+      "candidateName": "assign",
+      "candidateEmail": "assign@gmail.com",
+      "testId": 8,
+      "examId": "s5w2vsjgxfk",
+      "assignDate": "2018-05-14T06:30:26.043Z",
+      "id": 5
+    },
+    {
+      "candidateName": "candidate 1",
+      "candidateEmail": "candidate1@gmail.com",
+      "testId": 1,
+      "examId": "t20sehbln7m",
+      "assignDate": "2018-05-14T07:15:44.936Z",
+      "id": 6
+    },
+    {
+      "candidateName": "candidate test",
+      "candidateEmail": "candidatetest@gmail.com",
+      "testId": 8,
+      "examId": "r5c6u0bnu39",
+      "assignDate": "2018-05-14T07:18:10.706Z",
+      "id": 7
+    },
+    {
+      "candidateName": "candidate4",
+      "candidateEmail": "candidate4@gmail.com",
+      "testId": 8,
+      "examId": "gz08przo946",
+      "assignDate": "2018-05-14T07:18:58.371Z",
+      "id": 8
+    },
+    {
+      "candidateName": "mmm",
+      "candidateEmail": "mm@email.com",
+      "testId": 1,
+      "examId": "auzt5h99iwb",
+      "assignDate": "2018-05-14T09:34:53.186Z",
+      "id": 9
+    },
+    {
+      "candidateName": "prime",
+      "candidateEmail": "prime@gmail.com",
       "testId": 5,
-      "examId": "1xr4jz1lxcq",
-      "id": 1
+      "examId": "go5wp5e4b3t",
+      "assignDate": "2018-05-14T10:13:57.301Z",
+      "id": 10
+    },
+    {
+      "candidateName": "candi",
+      "candidateEmail": "candi1@gmail.com",
+      "testId": 8,
+      "examId": "qa3lpacbvw",
+      "assignDate": "2018-05-14T10:15:00.295Z",
+      "id": 11
     }
   ],
-  "candidateAnswers": []
+  "candidateAnswers": [
+    {
+      "candidateName": "assign",
+      "candidateEmail": "assign@gmail.com",
+      "testId": 8,
+      "examId": "s5w2vsjgxfk",
+      "assignDate": "2018-05-14T06:30:26.043Z",
+      "MCQQuestions": [
+        {
+          "Question": "Test",
+          "Answers": "A"
+        },
+        {
+          "Question": "test1",
+          "Answers": "B"
+        },
+        {
+          "Question": "test 3",
+          "Answers": "C"
+        },
+        {
+          "Question": "test 4",
+          "Answers": "B"
+        }
+      ],
+      "completionDate": "2018-05-14T06:31:25.531Z",
+      "id": 4
+    },
+    {
+      "candidateName": "candidate4",
+      "candidateEmail": "candidate4@gmail.com",
+      "testId": 8,
+      "examId": "gz08przo946",
+      "assignDate": "2018-05-14T07:18:58.371Z",
+      "MCQQuestions": [
+        {
+          "Question": "Test",
+          "Answers": "A"
+        },
+        {
+          "Question": "test1",
+          "Answers": "C"
+        },
+        {
+          "Question": "test 3",
+          "Answers": "D"
+        },
+        {
+          "Question": "test 4",
+          "Answers": "D"
+        }
+      ],
+      "completionDate": "2018-05-14T07:19:25.298Z",
+      "id": 5
+    },
+    {
+      "candidateName": "mmm",
+      "candidateEmail": "mm@email.com",
+      "testId": 1,
+      "examId": "auzt5h99iwb",
+      "assignDate": "2018-05-14T09:34:53.186Z",
+      "MCQQuestions": [
+        {
+          "Question": "Java Is a ____ Language",
+          "Answers": "D"
+        },
+        {
+          "Question": "Which of the following class definitions defines legal abstract class?",
+          "Answers": "B"
+        },
+        {
+          "Question": "Java Is a ____ Language",
+          "Answers": "D"
+        },
+        {
+          "Question": "Which of the following class definitions defines legal abstract class?",
+          "Answers": "C"
+        },
+        {
+          "Question": "Which of the following class definitions defines legal abstract class?",
+          "Answers": "D"
+        },
+        {
+          "Question": "Java Is a ____ Language",
+          "Answers": "C"
+        }
+      ],
+      "completionDate": "2018-05-14T10:13:18.845Z",
+      "id": 6,
+      "CodingTests": [
+        {
+          "CodingTestName": "CodingTest1",
+          "CodingTestDescription": "<div> Coding Test HTML Content </div>",
+          "codingTextAnswer": "dfsdfdsfsdfdsf"
+        }
+      ]
+    },
+    {
+      "candidateName": "prime",
+      "candidateEmail": "prime@gmail.com",
+      "testId": 5,
+      "examId": "go5wp5e4b3t",
+      "assignDate": "2018-05-14T10:13:57.301Z",
+      "CodingTests": [
+        {
+          "CodingTestName": "Prime number",
+          "CodingTestDescription": "Write a Java program to check if a given number is prime or not. Remember, a prime number is a number which is not divisible by any other number e.g. 3, 5, 7, 11, 13, 17 etc. Be prepared for cross e.g. checking till the square root of a number etc",
+          "codingTextAnswer": "code here"
+        }
+      ],
+      "completionDate": "2018-05-14T10:14:13.966Z",
+      "id": 7
+    },
+    {
+      "candidateName": "candi",
+      "candidateEmail": "candi1@gmail.com",
+      "testId": 8,
+      "examId": "qa3lpacbvw",
+      "assignDate": "2018-05-14T10:15:00.295Z",
+      "MCQQuestions": [
+        {
+          "Question": "Test",
+          "Answers": "B"
+        },
+        {
+          "Question": "test1",
+          "Answers": "D"
+        },
+        {
+          "Question": "test 3",
+          "Answers": "B"
+        },
+        {
+          "Question": "test 4",
+          "Answers": "C"
+        }
+      ],
+      "completionDate": "2018-05-14T10:15:19.623Z",
+      "id": 8
+    }
+  ]
 }

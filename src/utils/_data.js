@@ -73,14 +73,6 @@ export async function deleteTest(testId) {
   return res.data;
 }
 
-// candidates Api
-
-export async function getCandidates() {
-  const url = utils.getURL(`candidates`);
-  const res = await axios.get(url, config);
-  return res.data;
-}
-
 // Question
 
 export async function addNewTestDetails(data) {
@@ -109,6 +101,11 @@ export async function getCandidateInvitation(examId) {
   return res.data;
 }
 
+export async function getInvitedCandidates(testId) {
+  const url = utils.getURL(`invitedCandidates?testId=${testId}`);
+  const res = await axios.get(url, config);
+  return res.data;
+}
 
 // candidate answer
 
@@ -125,7 +122,13 @@ export async function updateCandidateAnswer(candidate) {
 }
 
 export async function getCandidateAnswer(examId) {
-  const url = utils.getURL(`candidateAnswers?${examId}`);
+  const url = utils.getURL(`candidateAnswers?examId=${examId}`);
+  const res = await axios.get(url, config);
+  return res.data;
+}
+
+export async function getAllCandidateAnswer() {
+  const url = utils.getURL(`candidateAnswers`);
   const res = await axios.get(url, config);
   return res.data;
 }

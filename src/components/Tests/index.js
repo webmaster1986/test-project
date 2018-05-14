@@ -65,7 +65,7 @@ class OverView extends Component {
     }
   }
 
-  onSave = (status) => {
+  onSave = () => {
     const { fields, tests} = this.state;
     let validationErrors = {};
     Object.keys(fields).forEach(name => {
@@ -80,16 +80,12 @@ class OverView extends Component {
     }
 
     addTest(fields).then((res) => {
-      if(status === "save") {
-        tests.push(res);
-        this.setState({tests});
-        this.handleModal();
-      }
-      if(status === "saveAndContinue") {
-        this.props.history.push({
-          pathname: `/testDetails/${res.id}`
-        })
-      }
+      tests.push(res);
+      this.setState({tests});
+      this.handleModal();
+      swal("Your Test Created Successfully.", {
+        icon: "success",
+      });
     })
   }
 
