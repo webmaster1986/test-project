@@ -15,6 +15,7 @@ class Invitation extends Component {
     isNew: false,
     isMCQ: false,
     isCodingText: false,
+    inProgress: false,
   }
 
   componentWillMount() {
@@ -173,46 +174,53 @@ class Invitation extends Component {
       message = "Your Coding Test Completed successfully...";
     }
 
-    if(isNew) {
-      delete candidate['id'];
-      candidate.completionDate = new Date();
-      addCandidateAnswer(candidate).then(candidateAnswer => {
-        if (!candidateAnswer.MCQQuestions && isMCQ) {
-          test = 1
-        } else if (!candidateAnswer.CodingTests && isCodingText) {
-          test = 2
-        } else {
-          test = 3
-        }
-        this.setState({
-          test,
-        });
-        swal(message, {
-          icon: "success",
-        });
-      }).catch(err => console.log(err));
-    } else {
-      candidate.completionDate = new Date();
-      updateCandidateAnswer(candidate).then(candidateAnswer => {
-        if (!candidateAnswer.MCQQuestions && isMCQ) {
-          test = 1
-        } else if (!candidateAnswer.CodingTests && isCodingText) {
-          test = 2
-        } else {
-          test = 3
-        }
-        this.setState({
-          test,
-        });
-        swal(message, {
-          icon: "success",
-        });
-      }).catch(err => console.log(err));
-    }
+    this.setState({
+        inProgress: true,
+    }, () => {
+      if(isNew) {
+          delete candidate['id'];
+          candidate.completionDate = new Date();
+          addCandidateAnswer(candidate).then(candidateAnswer => {
+              if (!candidateAnswer.MCQQuestions && isMCQ) {
+                  test = 1
+              } else if (!candidateAnswer.CodingTests && isCodingText) {
+                  test = 2
+              } else {
+                  test = 3
+              }
+              this.setState({
+                  test,
+                  inProgress: false,
+              });
+              swal(message, {
+                  icon: "success",
+              });
+          }).catch(err => console.log(err));
+      } else {
+        candidate.completionDate = new Date();
+        updateCandidateAnswer(candidate).then(candidateAnswer => {
+            if (!candidateAnswer.MCQQuestions && isMCQ) {
+                test = 1
+            } else if (!candidateAnswer.CodingTests && isCodingText) {
+                test = 2
+            } else {
+                test = 3
+            }
+            this.setState({
+                test,
+                inProgress: false,
+            });
+            swal(message, {
+                icon: "success",
+            });
+        }).catch(err => console.log(err));
+      }
+    })
+
   }
 
   render() {
-    const { exam, errors, visibleQuestionIndex, test, isMCQ, isCodingText } = this.state;
+    const { exam, errors, visibleQuestionIndex, test, isMCQ, isCodingText, inProgress } = this.state;
     const pageContents = [];
     for (let i=0; i<exam.MCQCount; i++) {
       pageContents.push(<li key={i} className={`${i === visibleQuestionIndex ? 'active' : ''}`} onClick={() => this.onNextPrivious(i)}>{i+1}</li>)
@@ -232,7 +240,7 @@ class Invitation extends Component {
             </div>
           }
           <div className={`col-xs-12 mt-5 text-right ${isMCQ ? 'col-sm-6 col-md-6' : 'col-sm-12 col-md-12'}`}>
-            {test === 1 && isMCQ && <button className="btn btn-primary" onClick={() => this.onSave('MCQ')}>Submit</button>}
+            {test === 1 && isMCQ && <button className="btn btn-primary" disabled={inProgress} onClick={() => this.onSave('MCQ')}>Submit</button>}
             {test === 2 && isCodingText && <button className="btn btn-primary" onClick={() => this.onSave('Coding')}>Submit</button>}
           </div>
         </div>
