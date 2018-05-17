@@ -29,16 +29,6 @@ const initialState = {
   },
 };
 
-const  addTest = {
-  id: "",
-  testName: "",
-  testId: "",
-  MCQCount: "",
-  MCQQuestions: [],
-  CodingTestCount: "",
-  CodingTests: [],
-};
-
 class TestDetails extends Component {
   state = {
     ...initialState,
@@ -88,7 +78,7 @@ class TestDetails extends Component {
           loading: false,
           testDetails: res[0] || {},
           pages: (res[0].MCQQuestions && Math.ceil(res[0].MCQQuestions.length/3)) || 0,
-          addTest: res[0] || addTest,
+          addTest: res[0] || {...this.state.addTest},
         })
       } else {
         getTestById(testId).then(res => {
@@ -288,16 +278,13 @@ class TestDetails extends Component {
 
     addTest.MCQCount = addTest.MCQQuestions.length + 1;
     addTest.MCQQuestions.push(Question);
-    debugger
+
     if(status === "save") {
       if(newTest) {
         addNewTestDetails(addTest).then((res) => {
           if(res) {
             _this.getTestDetails(testDetails.id);
             _this.handleMCQModal();
-            _this.setState({
-                addTest
-            })
           }
         })
       } else {
@@ -305,9 +292,6 @@ class TestDetails extends Component {
           if(res) {
             _this.getTestDetails(testDetails.id);
             _this.handleMCQModal();
-            _this.setState({
-                addTest
-            })
           }
         })
       }
