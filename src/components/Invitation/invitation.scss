@@ -24,7 +24,8 @@
     height: 430px;
   }
   .form-group {
-     position: relative;
+    position: relative;
+    margin-bottom: 0;
     .check-container {
       input:checked ~ .checkmark {
         background-color: #007bff!important;

@@ -42,7 +42,15 @@ const  addTest = {
 class TestDetails extends Component {
   state = {
     ...initialState,
-    addTest,
+    addTest: {
+        id: "",
+        testName: "",
+        testId: "",
+        MCQCount: "",
+        MCQQuestions: [],
+        CodingTestCount: "",
+        CodingTests: [],
+    },
     inviteCandidate: {
       candidateName: "",
       candidateEmail: "",
@@ -280,12 +288,16 @@ class TestDetails extends Component {
 
     addTest.MCQCount = addTest.MCQQuestions.length + 1;
     addTest.MCQQuestions.push(Question);
+    debugger
     if(status === "save") {
       if(newTest) {
         addNewTestDetails(addTest).then((res) => {
           if(res) {
             _this.getTestDetails(testDetails.id);
             _this.handleMCQModal();
+            _this.setState({
+                addTest
+            })
           }
         })
       } else {
@@ -293,6 +305,9 @@ class TestDetails extends Component {
           if(res) {
             _this.getTestDetails(testDetails.id);
             _this.handleMCQModal();
+            _this.setState({
+                addTest
+            })
           }
         })
       }

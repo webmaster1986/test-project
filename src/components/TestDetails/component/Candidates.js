@@ -28,7 +28,7 @@ const Candidates = props => {
                 <td>{candidate.id}</td>
                 <td>{`${candidate.candidateName}`}</td>
                 <td>{candidate.candidateEmail}</td>
-                <td>test/{testName}/{candidate.examId}</td>
+                <td>test/{testName.replace(' ','_')}/{candidate.examId}</td>
                 <td>{candidate.assignDate ? moment(candidate.assignDate).format('MM/DD/YYYY') : '---'}</td>
                 <td>{candidate.completionDate ? moment(candidate.completionDate).format('MM/DD/YYYY') : '---'}</td>
               </tr>

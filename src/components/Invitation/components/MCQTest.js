@@ -40,6 +40,7 @@ const MCQTest = props => {
                     </div>
                   )
                 }
+                return null
               })
             }
             <div className="col-sm-12 col-md-6 offset-md-3 col-xs-12 mt-4 mb-4">
