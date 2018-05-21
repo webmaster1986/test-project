@@ -190,6 +190,8 @@ class Invitation extends Component {
               }
               this.setState({
                   test,
+                  candidate: candidateAnswer,
+                  isNew: false,
                   inProgress: false,
               });
               swal(message, {

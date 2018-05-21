@@ -33,7 +33,6 @@ class TestDetails extends Component {
   state = {
     ...initialState,
     addTest: {
-        id: "",
         testName: "",
         testId: "",
         MCQCount: "",
@@ -374,19 +373,45 @@ class TestDetails extends Component {
   }
 
   handleMCQModal = () => {
-    this.setState({
-      MCQModal: !this.state.MCQModal,
-      ...initialState,
-    })
+      if (!this.state.MCQModal) {
+          this.setState({
+              MCQModal: !this.state.MCQModal,
+              addTest: {
+                  ...this.state.addTest,
+                  MCQCount: "",
+                  MCQQuestions: [],
+              },
+              ...initialState,
+          })
+      } else {
+          this.setState({
+              MCQModal: !this.state.MCQModal,
+              ...initialState,
+          })
+      }
   }
 
   handleCodingModal = () => {
-    this.setState({
-      ...initialState,
-      codingModal: !this.state.codingModal,
-      codingName: "",
-      codingQuestion: "",
-    })
+      if (!this.state.codingModal) {
+          this.setState({
+              codingModal: !this.state.codingModal,
+              codingName: "",
+              codingQuestion: "",
+              addTest: {
+                  ...this.state.addTest,
+                  CodingTestCount: "",
+                  CodingTests: [],
+              },
+              ...initialState,
+          })
+      } else {
+          this.setState({
+              ...initialState,
+              codingModal: !this.state.codingModal,
+              codingName: "",
+              codingQuestion: "",
+          })
+      }
   }
 
   handleInviteModal = () => {

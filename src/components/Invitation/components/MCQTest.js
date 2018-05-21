@@ -11,7 +11,7 @@ const MCQTest = props => {
           <small className="text-danger">{errors.MCQError}</small>
           <div className="row">
             {
-              exam.MCQQuestions && exam.MCQQuestions.map((que, j) => {
+              exam.MCQQuestions && exam.MCQQuestions.length && exam.MCQQuestions.map((que, j) => {
                 if (visibleQuestionIndex === j) {
                   return (
                     <div key={j} className='col-sm-12 col-md-6 offset-md-3 col-xs-12'>
@@ -19,7 +19,7 @@ const MCQTest = props => {
                         {que.Question}
                       </p>
                       {
-                        que.Answers.map((option, i) => (
+                          que.Answers && Array.isArray(que.Answers) && que.Answers.length && que.Answers.map((option, i) => (
                           <div key={i} className={`form-group ${option.chooseAnswer ? 'text-success' : ''}`}>
                             <div
                               data-name="correctAnswer"
@@ -30,7 +30,7 @@ const MCQTest = props => {
                             >{options[i]}. {option.answertext}</div>
                             <label className="check-container">
                               <input type="checkbox" name="correctAnswer" data-id={i} id={`${options[i]}`}
-                                     onClick={onChange} checked={option.chooseAnswer}/>
+                                     onClick={onChange} checked={option.chooseAnswer || false}/>
                               <span className="checkmark text-primary"/>
                             </label>
                             <small className="text-danger">{errors[`option${options[i]}`]}</small>

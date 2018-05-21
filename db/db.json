@@ -34,239 +34,70 @@
   },
   "tests": [
     {
-      "testName": "Java Online Quiz",
-      "description": "description 1",
+      "testName": "dvdf",
+      "description": "fcvdf",
       "id": 1
-    },
-    {
-      "testName": "test 2",
-      "description": "description 2",
-      "id": 2
     }
   ],
   "testDetails": [
     {
-      "id": 1,
-      "testName": "Java Online Quiz",
+      "testName": "dvdf",
       "testId": 1,
-      "MCQCount": 5,
+      "MCQCount": 1,
       "MCQQuestions": [
         {
-          "Question": "What of the following is the default value of a local variable?",
+          "Question": "fvd",
           "Answers": [
             {
-              "answertext": "null",
+              "answertext": "fec",
               "correctAnswer": false
             },
             {
-              "answertext": "0",
-              "correctAnswer": false
-            },
-            {
-              "answertext": " Depends upon the type of variable",
-              "correctAnswer": false
-            },
-            {
-              "answertext": "Not assigned",
-              "correctAnswer": true
-            }
-          ]
-        },
-        {
-          "Question": "Is an empty .java file a valid source file?",
-          "Answers": [
-            {
-              "answertext": "True",
+              "answertext": "efv",
               "correctAnswer": true
             },
             {
-              "answertext": "False",
+              "answertext": "vef",
               "correctAnswer": false
             },
             {
-              "answertext": "True and false",
+              "answertext": "frv",
               "correctAnswer": false
-            },
-            {
-              "answertext": "none",
-              "correctAnswer": false
-            }
-          ]
-        },
-        {
-          "Question": "What is the default value of String variable?",
-          "Answers": [
-            {
-              "answertext": "\"\"",
-              "correctAnswer": false
-            },
-            {
-              "answertext": "\"",
-              "correctAnswer": false
-            },
-            {
-              "answertext": "null",
-              "correctAnswer": true
-            },
-            {
-              "answertext": "not defined",
-              "correctAnswer": false
-            }
-          ]
-        },
-        {
-          "Question": "Which of the following is false about String?",
-          "Answers": [
-            {
-              "answertext": "String is immutable.",
-              "correctAnswer": false
-            },
-            {
-              "answertext": "String can be created using new operator.",
-              "correctAnswer": false
-            },
-            {
-              "answertext": "String is a primary data type.",
-              "correctAnswer": true
-            },
-            {
-              "answertext": "None of the above.",
-              "correctAnswer": false
-            }
-          ]
-        },
-        {
-          "Question": "What is Abstraction?",
-          "Answers": [
-            {
-              "answertext": "Abstraction is a technique to define different methods of same type",
-              "correctAnswer": false
-            },
-            {
-              "answertext": "Abstraction is the ability of an object to take on many forms.",
-              "correctAnswer": false
-            },
-            {
-              "answertext": "It refers to the ability to make a class abstract in OOP.",
-              "correctAnswer": true
-            },
-            {
-              "answertext": "None of the above.",
-              "correctAnswer": false
-            }
-          ]
-        }
-      ],
-      "CodingTestCount": 1,
-      "CodingTests": [
-        {
-          "CodingTestName": "Linked List",
-          "CodingTestDescription": "How to reverse Singly Linked List?"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "testName": "test 2",
-      "testId": 2,
-      "MCQCount": 2,
-      "MCQQuestions": [
-        {
-          "Question": "test 1",
-          "Answers": [
-            {
-              "answertext": "11",
-              "correctAnswer": false
-            },
-            {
-              "answertext": "22",
-              "correctAnswer": true
-            },
-            {
-              "answertext": "33",
-              "correctAnswer": false
-            },
-            {
-              "answertext": "44",
-              "correctAnswer": false
-            }
-          ]
-        },
-        {
-          "Question": "test 2",
-          "Answers": [
-            {
-              "answertext": "11",
-              "correctAnswer": false
-            },
-            {
-              "answertext": "22",
-              "correctAnswer": false
-            },
-            {
-              "answertext": "33",
-              "correctAnswer": false
-            },
-            {
-              "answertext": "44",
-              "correctAnswer": true
             }
           ]
         }
       ],
       "CodingTestCount": "",
-      "CodingTests": []
+      "CodingTests": [],
+      "id": 1
     }
   ],
   "candidates": [],
   "invitedCandidates": [
     {
-      "candidateName": "candi1",
-      "candidateEmail": "candi1@gmail.com",
+      "candidateName": "dc",
+      "candidateEmail": "dc@efv.hn",
       "testId": 1,
-      "examId": "3aecbv8uts3",
-      "assignDate": "2018-05-17T12:06:05.318Z",
+      "examId": "vrdgsuu3xm",
+      "assignDate": "2018-05-19T06:37:48.377Z",
       "id": 1
     }
   ],
   "candidateAnswers": [
     {
-      "candidateName": "candi1",
-      "candidateEmail": "candi1@gmail.com",
+      "candidateName": "dc",
+      "candidateEmail": "dc@efv.hn",
       "testId": 1,
-      "examId": "3aecbv8uts3",
-      "assignDate": "2018-05-17T12:06:05.318Z",
+      "examId": "vrdgsuu3xm",
+      "assignDate": "2018-05-19T06:37:48.377Z",
       "MCQQuestions": [
         {
-          "Question": "What of the following is the default value of a local variable?",
-          "Answers": "C"
-        },
-        {
-          "Question": "Is an empty .java file a valid source file?",
-          "Answers": "D"
-        },
-        {
-          "Question": "What is the default value of String variable?",
+          "Question": "fvd",
           "Answers": "A"
-        },
-        {
-          "Question": "Which of the following is false about String?",
-          "Answers": "B"
-        },
-        {
-          "Question": "What is Abstraction?",
-          "Answers": "C"
         }
       ],
-      "completionDate": "2018-05-17T12:13:10.771Z",
-      "id": 1,
-      "CodingTests": [
-        {
-          "CodingTestName": "Linked List",
-          "CodingTestDescription": "How to reverse Singly Linked List?",
-          "codingTextAnswer": "package com.java2novice.ds.linkedlist;\n  \npublic class SinglyLinkedListImpl<T> {\n  \n    private Node<T> head;\n      \n    public void add(T element){\n          \n        Node<T> nd = new Node<T>();\n        nd.setValue(element);\n        System.out.println(\"Adding: \"+element);\n        Node<T> tmp = head;\n        while(true){\n            if(tmp == null){\n                //since there is only one element, both head and \n                //tail points to the same object.\n                head = nd;\n                break;\n            } else if(tmp.getNextRef() == null){\n                tmp.setNextRef(nd);\n                break;\n            } else {\n                tmp = tmp.getNextRef();\n            }\n        }\n    }\n      \n    public void traverse(){\n          \n        Node<T> tmp = head;\n        while(true){\n            if(tmp == null){\n                break;\n            }\n            System.out.print(tmp.getValue()+\"\\t\");\n            tmp = tmp.getNextRef();\n        }\n    }\n     \n    public void reverse(){\n         \n        System.out.println(\"\\nreversing the linked list\\n\");\n        Node<T> prev = null;\n        Node<T> current = head;\n        Node<T> next = null;\n        while(current != null){\n            next = current.getNextRef();\n            current.setNextRef(prev);\n            prev = current;\n            current = next;\n        }\n        head = prev;\n    }\n     \n    public static void main(String a[]){\n        SinglyLinkedListImpl<Integer> sl = new SinglyLinkedListImpl<Integer>();\n        sl.add(3);\n        sl.add(32);\n        sl.add(54);\n        sl.add(89);\n        System.out.println();\n        sl.traverse();\n        System.out.println();\n        sl.reverse();\n        sl.traverse();\n    }\n}\n  \nclass Node<T> implements Comparable<T> {\n      \n    private T value;\n    private Node<T> nextRef;\n      \n    public T getValue() {\n        return value;\n    }\n    public void setValue(T value) {\n        this.value = value;\n    }\n    public Node<T> getNextRef() {\n        return nextRef;\n    }\n    public void setNextRef(Node<T> ref) {\n        this.nextRef = ref;\n    }\n    @Override\n    public int compareTo(T arg) {\n        if(arg == this.value){\n            return 0;\n        } else {\n            return 1;\n        }\n    }\n}"
-        }
-      ]
+      "completionDate": "2018-05-19T06:38:02.828Z",
+      "id": 1
     }
   ]
 }
