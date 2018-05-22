@@ -1,0 +1,27 @@
+.invitation {
+  font-size: 80% !important; }
+  .invitation .disabled {
+    background: #ffffff; }
+  .invitation ul.pages {
+    display: inline-block;
+    margin: 0;
+    padding: 0; }
+    .invitation ul.pages li {
+      display: inline-block;
+      padding: 1px 6px;
+      border: solid 1px #1d1d1c1f;
+      cursor: pointer; }
+      .invitation ul.pages li.active {
+        border: 1px solid #007bff;
+        color: #007bff; }
+  .invitation .code-content {
+    height: 430px; }
+  .invitation .form-group {
+    position: relative;
+    margin-bottom: 0; }
+    .invitation .form-group .check-container input:checked ~ .checkmark {
+      background-color: #007bff !important; }
+    .invitation .form-group .check-container .checkmark {
+      position: absolute;
+      top: 6px;
+      right: 10px; }
