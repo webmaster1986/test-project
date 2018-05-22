@@ -8,6 +8,7 @@ import Header from './components/Common/Header'
 import Invitation from './components/Invitation'
 import './App.css';
 import Sidebar from "./components/Common/Sidebar";
+import Login from "./components/Login"
 
 class App extends Component {
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
               <Route path="/tests" component={Tests}/>
               <Route path="/testDetails/:testId" component={TestDetails}/>
               <Route path="/test/:testName/:examId" component={Invitation}/>
+              <Route path="/login" component={Login}/>
               <Route path="/" component={OverView}/>
             </Switch>
           </div>
