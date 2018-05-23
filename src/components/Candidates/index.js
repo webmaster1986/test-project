@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {getAllCandidateAnswer, getAllInvitedCandidates} from "../../utils/_data";
+import {getAllCandidateAnswer, getAllInvitedCandidates, getTests} from "../../utils/_data";
 import CandidatesList from "../Common/CandidatesList";
 
 class Candidates extends Component{
@@ -14,12 +14,18 @@ class Candidates extends Component{
   getAllCandidates = async () => {
     let candidates = await getAllInvitedCandidates();
     const candidatesAnswer = await getAllCandidateAnswer();
+    const tests = await getTests()
 
     if(candidates && Array.isArray(candidates)) {
       candidates = candidates.map(candidate => {
         const answer = candidatesAnswer.filter(answer => answer.examId === candidate.examId)
+        const test = tests.filter(test => test.id === candidate.testId)
+        if(test.length) {
+          candidate.testName = test[0].testName
+        }
         if(answer.length) {
-          return answer[0]
+
+          return { ...candidate, ...answer[0]}
         }
         return candidate
       })

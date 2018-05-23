@@ -48,11 +48,10 @@ export async function getOverviewText() {
 
 // Test Details Api
 export async function getTestDetailsById(testId) {
-  const url = utils.getURL(`testDetails?testId=${testId}`);
+  const url = utils.getURL(`testDetails?testId=${testId}&companyId=${user.companyId}`);
   const res = await axios.get(url, config);
   return res.data;
 }
-
 
 // Test Api
 /*export async function deleteTest(testId) {

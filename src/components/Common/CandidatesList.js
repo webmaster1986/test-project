@@ -25,12 +25,12 @@ const CandidatesList = (props) => {
           </thead>
           <tbody>
           {
-            candidates && candidates.length > 0 ? candidates.map(candidate => (
-              <tr key={candidate.id}>
+            candidates && candidates.length > 0 ? candidates.map((candidate, i) => (
+              <tr key={i}>
                 <td><a href={`${isEvaluation ? candidate.examId : '/'}`} className="text-primary pointer font-weight-bold"><u>#{candidate.examId}</u></a></td>
                 <td>{`${candidate.candidateName}`}</td>
                 <td>{candidate.candidateEmail}</td>
-                <td>testName</td>
+                <td>{candidate.testName}</td>
                 <td>{candidate.assignDate ? moment(candidate.assignDate).format('MM/DD/YYYY') : '---'}</td>
                 <td>{candidate.completionDate ? moment(candidate.completionDate).format('MM/DD/YYYY') : <span className="text-success">In Progress</span>}</td>
                 <td>Score</td>

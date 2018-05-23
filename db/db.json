@@ -216,8 +216,13 @@
           ]
         }
       ],
-      "CodingTestCount": "",
-      "CodingTests": [],
+      "CodingTestCount": 1,
+      "CodingTests": [
+        {
+          "CodingTestName": "sad",
+          "CodingTestDescription": "sasadas"
+        }
+      ],
       "id": 3
     },
     {
@@ -272,8 +277,114 @@
     {
       "testName": "test6",
       "testId": 7,
-      "MCQCount": "",
-      "MCQQuestions": [],
+      "MCQCount": 5,
+      "MCQQuestions": [
+        {
+          "Question": "test",
+          "Answers": [
+            {
+              "answertext": "1",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "2",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "3",
+              "correctAnswer": true
+            },
+            {
+              "answertext": "4",
+              "correctAnswer": false
+            }
+          ]
+        },
+        {
+          "Question": "dftgdg",
+          "Answers": [
+            {
+              "answertext": "7",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "8",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "9",
+              "correctAnswer": true
+            },
+            {
+              "answertext": "0",
+              "correctAnswer": false
+            }
+          ]
+        },
+        {
+          "Question": "cxczxczx",
+          "Answers": [
+            {
+              "answertext": "4",
+              "correctAnswer": true
+            },
+            {
+              "answertext": "5",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "6",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "8",
+              "correctAnswer": false
+            }
+          ]
+        },
+        {
+          "Question": "zxczxc",
+          "Answers": [
+            {
+              "answertext": "xczxc",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "cxv",
+              "correctAnswer": true
+            },
+            {
+              "answertext": "cxv",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "cv",
+              "correctAnswer": false
+            }
+          ]
+        },
+        {
+          "Question": "cxv",
+          "Answers": [
+            {
+              "answertext": "v cxv",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "vcxv",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "zx",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "ff",
+              "correctAnswer": true
+            }
+          ]
+        }
+      ],
       "CodingTestCount": 1,
       "CodingTests": [
         {
@@ -303,7 +414,7 @@
       "candidateEmail": "candidate1@gmail.com",
       "testId": 2,
       "companyName": "ebay",
-      "companyId": 1,
+      "companyId": 2,
       "examId": "brxf4anbl29",
       "assignDate": "2018-05-23T09:35:30.184Z",
       "id": 2
@@ -313,7 +424,7 @@
       "candidateEmail": "candidate2@gmail.com",
       "testId": 2,
       "companyName": "ebay",
-      "companyId": 1,
+      "companyId": 2,
       "examId": "pmpu9mbzsf",
       "assignDate": "2018-05-23T09:36:06.802Z",
       "id": 3
@@ -323,7 +434,7 @@
       "candidateEmail": "candidate3@gmail.com",
       "testId": 2,
       "companyName": "ebay",
-      "companyId": 1,
+      "companyId": 2,
       "examId": "7o7bt7ya9by",
       "assignDate": "2018-05-23T09:36:20.265Z",
       "id": 4
@@ -357,6 +468,46 @@
       "examId": "yspkzjiel1q",
       "assignDate": "2018-05-23T09:37:42.482Z",
       "id": 7
+    },
+    {
+      "candidateName": "dfg",
+      "candidateEmail": "dfgg@g.dfd",
+      "testId": 3,
+      "examId": "ckx5pndks65",
+      "assignDate": "2018-05-23T11:53:05.959Z",
+      "companyName": "ebay",
+      "companyId": 1,
+      "id": 8
+    },
+    {
+      "candidateName": "fgh",
+      "candidateEmail": "ghf@fg.gd",
+      "testId": 4,
+      "examId": "up8yi5ahh",
+      "assignDate": "2018-05-23T11:53:31.959Z",
+      "companyName": "ebay",
+      "companyId": 1,
+      "id": 9
+    },
+    {
+      "candidateName": "testCandi",
+      "candidateEmail": "testCandi@gmail.com",
+      "testId": 7,
+      "examId": "wh702sdxygi",
+      "assignDate": "2018-05-23T12:16:52.504Z",
+      "companyName": "ebay",
+      "companyId": 1,
+      "id": 10
+    },
+    {
+      "candidateName": "dsfdsf",
+      "candidateEmail": "dsfsdf@fsdfd.dsf",
+      "testId": 7,
+      "examId": "7dtda1kdg8i",
+      "assignDate": "2018-05-23T12:54:02.869Z",
+      "companyName": "ebay",
+      "companyId": 1,
+      "id": 11
     }
   ],
   "candidateAnswers": [
@@ -382,7 +533,7 @@
       "candidateEmail": "candidate1@gmail.com",
       "testId": 2,
       "companyName": "ebay",
-      "companyId": 1,
+      "companyId": 2,
       "examId": "brxf4anbl29",
       "assignDate": "2018-05-23T09:35:30.184Z",
       "MCQQuestions": [
@@ -421,6 +572,128 @@
       ],
       "completionDate": "2018-05-23T09:37:09.874Z",
       "id": 3
+    },
+    {
+      "candidateName": "dfg",
+      "candidateEmail": "dfgg@g.dfd",
+      "testId": 3,
+      "examId": "ckx5pndks65",
+      "assignDate": "2018-05-23T11:53:05.959Z",
+      "companyName": "ebay",
+      "companyId": 1,
+      "MCQQuestions": [
+        {
+          "Question": "sad",
+          "Answers": "A"
+        }
+      ],
+      "id": 4,
+      "CodingTests": [
+        {
+          "CodingTestName": "sad",
+          "CodingTestDescription": "sasadas",
+          "codingTextAnswer": "dfgfgdf"
+        }
+      ],
+      "completionDate": "2018-05-23T11:53:15.207Z"
+    },
+    {
+      "candidateName": "fgh",
+      "candidateEmail": "ghf@fg.gd",
+      "testId": 4,
+      "examId": "up8yi5ahh",
+      "assignDate": "2018-05-23T11:53:31.959Z",
+      "companyName": "ebay",
+      "companyId": 1,
+      "CodingTests": [
+        {
+          "CodingTestName": "asdsa",
+          "CodingTestDescription": "dasd",
+          "codingTextAnswer": "dsfsf"
+        }
+      ],
+      "completionDate": "2018-05-23T11:53:36.776Z",
+      "id": 5
+    },
+    {
+      "candidateName": "testCandi",
+      "candidateEmail": "testCandi@gmail.com",
+      "testId": 7,
+      "examId": "wh702sdxygi",
+      "assignDate": "2018-05-23T12:16:52.504Z",
+      "companyName": "ebay",
+      "companyId": 1,
+      "MCQQuestions": [
+        {
+          "Question": "test",
+          "Answers": "A"
+        },
+        {
+          "Question": "dftgdg",
+          "Answers": "B"
+        },
+        {
+          "Question": "cxczxczx",
+          "Answers": "D"
+        },
+        {
+          "Question": "zxczxc",
+          "Answers": "C"
+        },
+        {
+          "Question": "cxv",
+          "Answers": "D"
+        }
+      ],
+      "id": 6,
+      "CodingTests": [
+        {
+          "CodingTestName": "df",
+          "CodingTestDescription": "dsfdsf",
+          "codingTextAnswer": "dfdsfdfsdf"
+        }
+      ],
+      "completionDate": "2018-05-23T12:17:18.561Z"
+    },
+    {
+      "candidateName": "dsfdsf",
+      "candidateEmail": "dsfsdf@fsdfd.dsf",
+      "testId": 7,
+      "examId": "7dtda1kdg8i",
+      "assignDate": "2018-05-23T12:54:02.869Z",
+      "companyName": "ebay",
+      "companyId": 1,
+      "MCQQuestions": [
+        {
+          "Question": "test",
+          "Answers": "B"
+        },
+        {
+          "Question": "dftgdg",
+          "Answers": "C"
+        },
+        {
+          "Question": "cxczxczx",
+          "Answers": "D"
+        },
+        {
+          "Question": "zxczxc",
+          "Answers": "A"
+        },
+        {
+          "Question": "cxv",
+          "Answers": "B"
+        }
+      ],
+      "id": 7,
+      "CodingTests": [
+        {
+          "CodingTestName": "df",
+          "CodingTestDescription": "dsfdsf",
+          "codingTextAnswer": "dsfsdfdsfsdf"
+        }
+      ],
+      "completionDate": "2018-05-23T12:54:24.790Z"
     }
   ]
 }

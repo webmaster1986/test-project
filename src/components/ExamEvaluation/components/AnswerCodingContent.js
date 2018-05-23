@@ -1,9 +1,9 @@
 import React from 'react';
 
 const AnswerCodingContent = props => {
-  const {testDetails} = props;
+  const {testDetails, examStatus} = props;
   return (
-    <div className='col-sm-12 col-md-5 col-xs-12 mt-3'>
+    <div className={`col-sm-12 ${examStatus === 3 ? 'col-md-12' : 'col-md-5'} col-xs-12 mt-3`}>
       <div className="card">
         {testDetails && testDetails.CodingTests && testDetails.CodingTests.length ? testDetails.CodingTests.map((codingTest, i) => (
           <div key={i} className="card-body">

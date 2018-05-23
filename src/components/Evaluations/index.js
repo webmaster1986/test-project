@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {getAllCandidateAnswer} from "../../utils/_data";
+import {getAllCandidateAnswer, getTests} from "../../utils/_data";
 import CandidatesList from "../Common/CandidatesList";
 
 class Evaluations extends Component{
@@ -11,16 +11,23 @@ class Evaluations extends Component{
     this.getAllCandidates();
   }
 
-  getAllCandidates = () => {
+  getAllCandidates = async () => {
+    let candidates = await getAllCandidateAnswer()
+    const tests = await getTests()
 
-    getAllCandidateAnswer().then(candidates => {
-      if(candidates && Array.isArray(candidates)) {
-        candidates = candidates.filter(candidate => !!candidate.completionDate);
-        this.setState({
-          candidates
-        })
-      }
-    }).catch(err => console.log(err));
+    if(candidates && Array.isArray(candidates)) {
+      candidates = candidates.filter(candidate => !!candidate.completionDate);
+      candidates = candidates.map(candidate => {
+        const test = tests.filter(test => test.id === candidate.testId)
+        if(test.length) {
+          candidate.testName = test[0].testName
+        }
+        return candidate
+      })
+      this.setState({
+        candidates
+      })
+    }
   }
 
   render() {

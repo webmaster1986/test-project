@@ -16,6 +16,7 @@ class ExamEvaluation extends Component{
     startIndex: 0,
     endIndex: 3,
     currentPage: 1,
+    examStatus: ""
   }
 
   componentWillMount() {
@@ -26,6 +27,7 @@ class ExamEvaluation extends Component{
   }
 
   getAnswers = async (examId) => {
+    let {examStatus} = this.state
     let candidateAnswers = await getCandidateAnswer(examId)
 
     if(candidateAnswers && Array.isArray(candidateAnswers) && candidateAnswers.length) {
@@ -33,9 +35,22 @@ class ExamEvaluation extends Component{
       if(testDetails && Array.isArray(testDetails) && testDetails.length) {
         candidateAnswers = candidateAnswers[0];
         candidateAnswers.testDetails = testDetails[0];
+        const isMCQ = !!testDetails[0].MCQCount;
+        const isCodingText = !!testDetails[0].CodingTestCount;
+        if (isCodingText && isMCQ) {
+          examStatus = 1
+        } else if (isMCQ) {
+          examStatus = 2
+        } else if(isCodingText) {
+          examStatus = 3
+        }
         this.setState({
+          examStatus,
           candidateAnswers,
           pages: (testDetails[0].MCQQuestions && Math.ceil(testDetails[0].MCQQuestions.length/3)) || 0,
+        }, () => {
+          const {candidateAnswers} = this.state;
+          this.getExamScore(candidateAnswers.testDetails.MCQQuestions, candidateAnswers.MCQQuestions)
         })
       }
     }
@@ -51,8 +66,30 @@ class ExamEvaluation extends Component{
     })
   }
 
+  getExamScore = (Questions, Answers) => {
+    const { candidateAnswers } = this.state;
+    const answer = ["A", "B", "C", "D"];
+
+    Questions.forEach((ans, i) => {
+      const correct = ans.Answers.findIndex(x=>x.correctAnswer)
+      const given = Answers[i].Answers
+      const givenIndex = answer.findIndex(x => x === given);
+      ans.isRight = answer[correct] === given;
+      ans.givenIndex = givenIndex;
+      ans.correctIndex = correct
+    })
+
+    const score = Questions.filter(ques => ques.isRight);
+    candidateAnswers.testDetails.MCQQuestions = Questions;
+
+    this.setState({
+      score: score.length,
+      candidateAnswers,
+    })
+  }
+
   render() {
-    const { candidateAnswers, startIndex, endIndex, pages, currentPage } = this.state;
+    const { candidateAnswers, startIndex, endIndex, pages, currentPage, examStatus, score } = this.state;
     const testDetails = candidateAnswers.testDetails;
     const queCount = ['A', 'B', 'C', 'D', 'E', 'F'];
     const questionByPage = (testDetails && testDetails.MCQQuestions && testDetails.MCQQuestions.length && testDetails.MCQQuestions.slice(startIndex, endIndex)) || [];
@@ -71,9 +108,10 @@ class ExamEvaluation extends Component{
             <span className="inline-block">{candidateAnswers && moment(candidateAnswers.completionDate).format('MM/DD/YYYY hh:mm a')}</span>
           </div>
         </div>
+        <b>Score: {score}</b>
         <div className="row">
-          <QuestionAnswerList startIndex={startIndex} queCount={queCount} questionByPage={questionByPage} pageContents={pageContents}/>
-          <AnswerCodingContent testDetails={testDetails} />
+          {examStatus && (examStatus === 1 || examStatus === 2 ) && <QuestionAnswerList startIndex={startIndex} queCount={queCount} examStatus={examStatus} questionByPage={questionByPage} pageContents={pageContents}/>}
+          {examStatus && (examStatus === 1 || examStatus === 3 ) && <AnswerCodingContent examStatus={examStatus} testDetails={testDetails} /> }
         </div>
       </div>
     )

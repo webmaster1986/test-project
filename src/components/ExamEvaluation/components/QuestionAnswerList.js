@@ -1,9 +1,9 @@
 import React from 'react';
 
 const QuestionAnswerList = props => {
-  const {questionByPage, pageContents, startIndex, queCount} = props;
+  const {questionByPage, pageContents, startIndex, queCount, examStatus} = props;
   return (
-    <div className='col-sm-12 col-md-7 col-xs-12 mt-3'>
+    <div className={`col-sm-12 ${examStatus === 2 ? 'col-md-12' : 'col-md-7'} col-xs-12 mt-3`}>
       <div className="card">
         {
           questionByPage.length ?
@@ -21,10 +21,11 @@ const QuestionAnswerList = props => {
               {
                 questionByPage.map((que,i) => (
                   <div key={i}>
-                    <p className='question text-dark'><span>{startIndex+i+1}.</span> {que.Question}</p>
+                    <p className='question text-dark'><span>{startIndex + i + 1}.</span> {que.Question}</p>
                     <ul>
-                      {que.Answers.map((ans,j) =>(
-                        <li key={j} className={ans.correctAnswer ? 'text-success' : ''}><span>{queCount[j]}.</span> {ans.answertext} </li>
+                      {que.Answers.map((ans, j) => (
+                        <li key={j} className={que.correctIndex === j ? 'text-success' : que.givenIndex === j ? 'text-danger' : ''}>
+                          <span>{queCount[j]}.</span> {ans.answertext} {que.correctIndex === j ? <i className="fa fa-check text-success" /> : que.givenIndex === j ? <i className="fa fa-times text-danger" /> : ''}</li>
                       ))}
                     </ul>
                   </div>
