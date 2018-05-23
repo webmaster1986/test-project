@@ -26,8 +26,8 @@ const UserManage = props => {
           </thead>
           <tbody>
           {
-            users.length > 0 ? users.map(user => (
-              <tr key={user.id}>
+            users.length > 0 ? users.map((user, i) => (
+              <tr key={i}>
                 <td>{user.id}</td>
                 <td>{`${user.firstName} ${user.lastName}`}</td>
                 <td>{user.email}</td>

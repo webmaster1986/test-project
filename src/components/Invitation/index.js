@@ -174,12 +174,19 @@ class Invitation extends Component {
       message = "Your Coding Test Completed successfully...";
     }
 
+    if(isCodingText && isMCQ && candidate.MCQQuestions && candidate.CodingTests) {
+      candidate.completionDate = new Date();
+    } else if(isCodingText && !isMCQ && candidate.CodingTests) {
+      candidate.completionDate = new Date();
+    } else if(isMCQ && !isCodingText && candidate.MCQQuestions) {
+      candidate.completionDate = new Date();
+    }
+
     this.setState({
         inProgress: true,
     }, () => {
       if(isNew) {
           delete candidate['id'];
-          candidate.completionDate = new Date();
           addCandidateAnswer(candidate).then(candidateAnswer => {
               if (!candidateAnswer.MCQQuestions && isMCQ) {
                   test = 1
@@ -199,7 +206,6 @@ class Invitation extends Component {
               });
           }).catch(err => console.log(err));
       } else {
-        candidate.completionDate = new Date();
         updateCandidateAnswer(candidate).then(candidateAnswer => {
             if (!candidateAnswer.MCQQuestions && isMCQ) {
                 test = 1

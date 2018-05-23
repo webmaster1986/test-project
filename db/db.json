@@ -1,32 +1,43 @@
 {
+  "companies": [
+    {
+      "companyName": "ebay",
+      "companyName_URLEncoded": "ebay",
+      "id": 1
+    },
+    {
+      "companyName": "InfoSolve Technologies",
+      "companyName_URLEncoded": "InfoSolve+Technologies",
+      "id": 2
+    }
+  ],
   "users": [
     {
       "firstName": "tester",
       "lastName": "1",
       "email": "tester@gmail.com",
       "designation": "admin",
+      "companyName": "ebay",
+      "companyId": 1,
       "id": 1
     },
     {
       "firstName": "tester",
       "lastName": "2",
       "email": "tester2@gmail.com",
-      "designation": "employ",
+      "designation": "employee",
+      "companyName": "ebay",
+      "companyId": 1,
       "id": 2
     },
     {
       "firstName": "tester",
-      "lastName": "3",
+      "lastName": "1",
       "email": "tester3@gmail.com",
-      "designation": "employ",
-      "id": 3
-    },
-    {
-      "firstName": "tester",
-      "lastName": "4",
-      "email": "tester4@gmail.com",
-      "designation": "employ",
-      "id": 4
+      "designation": "admin",
+      "companyName": "InfoSolve Technologies",
+      "companyId": 2,
+      "id": 1
     }
   ],
   "overview": {
@@ -36,13 +47,38 @@
     {
       "testName": "dvdf",
       "description": "fcvdf",
-      "id": 1
+      "id": 1,
+      "companyName": "ebay",
+      "companyId": 1
+    },
+    {
+      "testName": "test2",
+      "description": "test2 description",
+      "id": 2,
+      "companyName": "InfoSolve Technologies",
+      "companyId": 2
+    },
+    {
+      "testName": "test3",
+      "description": "test des",
+      "id": 3
+    },
+    {
+      "testName": "test4",
+      "description": "sadasd",
+      "id": 4
+    },
+    {
+      "testName": "sdf",
+      "description": "fdsfdf",
+      "id": 5
     }
   ],
   "testDetails": [
     {
       "testName": "dvdf",
-      "testId": 1,
+      "companyName": "ebay",
+      "companyId": 1,
       "MCQCount": 1,
       "MCQQuestions": [
         {
@@ -69,35 +105,352 @@
       ],
       "CodingTestCount": "",
       "CodingTests": [],
-      "id": 1
+      "id": 1,
+      "testId": 1
+    },
+    {
+      "testName": "test2",
+      "companyName": "InfoSolve Technologies",
+      "companyId": 2,
+      "MCQCount": 2,
+      "MCQQuestions": [
+        {
+          "Question": "test 2 question 1",
+          "Answers": [
+            {
+              "answertext": "test 2 question 1 opt A",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "test 2 question 1 opt B",
+              "correctAnswer": true
+            },
+            {
+              "answertext": "test 2 question 1 opt C",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "test 2 question 1 opt D",
+              "correctAnswer": false
+            }
+          ]
+        },
+        {
+          "Question": "test 2 question 2",
+          "Answers": [
+            {
+              "answertext": "test 2 question 2 opt A",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "test 2 question 2 opt B",
+              "correctAnswer": true
+            },
+            {
+              "answertext": "test 2 question 2 opt C",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "test 2 question 2 opt D",
+              "correctAnswer": false
+            }
+          ]
+        }
+      ],
+      "CodingTestCount": "1",
+      "CodingTests": [
+        {
+          "CodingTestName": "CodingTest1",
+          "CodingTestDescription": "reverse a linked List"
+        }
+      ],
+      "id": 2,
+      "testId": 2
+    },
+    {
+      "testName": "test3",
+      "testId": 3,
+      "MCQCount": "",
+      "MCQQuestions": [],
+      "CodingTestCount": 1,
+      "CodingTests": [
+        {
+          "CodingTestName": "sadsad",
+          "CodingTestDescription": "adssad"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "testName": "test4",
+      "testId": 4,
+      "MCQCount": 1,
+      "MCQQuestions": [
+        {
+          "Question": "asd",
+          "Answers": [
+            {
+              "answertext": "sad",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "bvn",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "Zc ",
+              "correctAnswer": true
+            },
+            {
+              "answertext": "bnvbn",
+              "correctAnswer": false
+            }
+          ]
+        }
+      ],
+      "CodingTestCount": "",
+      "CodingTests": [],
+      "id": 4
+    },
+    {
+      "testName": "sdf",
+      "testId": 5,
+      "MCQCount": 1,
+      "MCQQuestions": [
+        {
+          "Question": "fdg",
+          "Answers": [
+            {
+              "answertext": "fdg",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "cvx",
+              "correctAnswer": false
+            },
+            {
+              "answertext": "cvccxv",
+              "correctAnswer": true
+            },
+            {
+              "answertext": "cxv",
+              "correctAnswer": false
+            }
+          ]
+        }
+      ],
+      "CodingTestCount": 1,
+      "CodingTests": [
+        {
+          "CodingTestName": "nbm",
+          "CodingTestDescription": "nbmdfs"
+        }
+      ],
+      "id": 5
     }
   ],
   "candidates": [],
   "invitedCandidates": [
     {
-      "candidateName": "dc",
-      "candidateEmail": "dc@efv.hn",
+      "candidateName": "sf",
+      "candidateEmail": "sdf@fa.ca",
       "testId": 1,
-      "examId": "vrdgsuu3xm",
-      "assignDate": "2018-05-19T06:37:48.377Z",
+      "examId": "y98ep7gdm7s",
+      "assignDate": "2018-05-21T23:30:50.871Z",
       "id": 1
+    },
+    {
+      "candidateName": "fd",
+      "candidateEmail": "cxvvcx@sdsad.dsa",
+      "testId": 4,
+      "examId": "tndws3f1uo",
+      "assignDate": "2018-05-23T06:54:45.003Z",
+      "id": 2
+    },
+    {
+      "candidateName": "dsaf",
+      "candidateEmail": "dfgfgdf@dsff.dfs",
+      "testId": 3,
+      "examId": "u67o7mhfch",
+      "assignDate": "2018-05-23T06:55:13.242Z",
+      "id": 3
+    },
+    {
+      "candidateName": "sdf",
+      "candidateEmail": "sdf@dsf.dsf",
+      "testId": 3,
+      "examId": "i3i1skhjqe",
+      "assignDate": "2018-05-23T06:55:33.116Z",
+      "id": 4
+    },
+    {
+      "candidateName": "ty",
+      "candidateEmail": "vbcvb@dfs.dfs",
+      "testId": 5,
+      "examId": "ut6zcoa8yq",
+      "assignDate": "2018-05-23T06:58:16.132Z",
+      "id": 5
+    },
+    {
+      "candidateName": "sadas",
+      "candidateEmail": "asd@sdf.dfs",
+      "testId": 2,
+      "examId": "vne5z89kslm",
+      "assignDate": "2018-05-23T07:18:16.166Z",
+      "id": 6
+    },
+    {
+      "candidateName": "dsf",
+      "candidateEmail": "dfsdf@sd.www",
+      "testId": 4,
+      "examId": "yrkerubfox",
+      "assignDate": "2018-05-23T07:19:00.614Z",
+      "id": 7
+    },
+    {
+      "candidateName": "candi 2",
+      "candidateEmail": "candi2@gmail.com",
+      "testId": 5,
+      "examId": "608fefpgkaq",
+      "assignDate": "2018-05-23T08:19:46.358Z",
+      "id": 8
+    },
+    {
+      "candidateName": "candi 3",
+      "candidateEmail": "candi3@gmail.com",
+      "testId": 5,
+      "examId": "pdrzs6fiptf",
+      "assignDate": "2018-05-23T08:20:00.574Z",
+      "id": 9
+    },
+    {
+      "candidateName": "candi 4",
+      "candidateEmail": "candi4@gmail.com",
+      "testId": 5,
+      "examId": "an631ao6pja",
+      "assignDate": "2018-05-23T08:20:13.830Z",
+      "id": 10
+    },
+    {
+      "candidateName": "candi 5",
+      "candidateEmail": "candi5@gmail.com",
+      "testId": 4,
+      "examId": "8wfw9tvqg9t",
+      "assignDate": "2018-05-23T08:20:36.462Z",
+      "id": 11
+    },
+    {
+      "candidateName": "candi 6",
+      "candidateEmail": "candi6@gmail.com",
+      "testId": 4,
+      "examId": "f99q8g0e1m",
+      "assignDate": "2018-05-23T08:20:50.022Z",
+      "id": 12
+    },
+    {
+      "candidateName": "candi 7",
+      "candidateEmail": "candi7@gmail.com",
+      "testId": 4,
+      "examId": "8o2zzpngjdk",
+      "assignDate": "2018-05-23T08:21:01.462Z",
+      "id": 13
     }
   ],
   "candidateAnswers": [
     {
-      "candidateName": "dc",
-      "candidateEmail": "dc@efv.hn",
+      "candidateName": "sf",
+      "candidateEmail": "sdf@fa.ca",
       "testId": 1,
-      "examId": "vrdgsuu3xm",
-      "assignDate": "2018-05-19T06:37:48.377Z",
+      "examId": "y98ep7gdm7s",
+      "assignDate": "2018-05-21T23:30:50.871Z",
       "MCQQuestions": [
         {
           "Question": "fvd",
           "Answers": "A"
         }
       ],
-      "completionDate": "2018-05-19T06:38:02.828Z",
+      "completionDate": "2018-05-21T23:31:03.521Z",
       "id": 1
+    },
+    {
+      "candidateName": "fd",
+      "candidateEmail": "cxvvcx@sdsad.dsa",
+      "testId": 4,
+      "examId": "tndws3f1uo",
+      "assignDate": "2018-05-23T06:54:45.003Z",
+      "MCQQuestions": [
+        {
+          "Question": "asd",
+          "Answers": "C"
+        }
+      ],
+      "completionDate": "2018-05-23T06:54:55.953Z",
+      "id": 2
+    },
+    {
+      "candidateName": "dsaf",
+      "candidateEmail": "dfgfgdf@dsff.dfs",
+      "testId": 3,
+      "examId": "u67o7mhfch",
+      "assignDate": "2018-05-23T06:55:13.242Z",
+      "CodingTests": [
+        {
+          "CodingTestName": "sadsad",
+          "CodingTestDescription": "adssad",
+          "codingTextAnswer": "dfgdfg"
+        }
+      ],
+      "completionDate": "2018-05-23T06:55:19.942Z",
+      "id": 3
+    },
+    {
+      "candidateName": "sdf",
+      "candidateEmail": "sdf@dsf.dsf",
+      "testId": 3,
+      "examId": "i3i1skhjqe",
+      "assignDate": "2018-05-23T06:55:33.116Z",
+      "CodingTests": [
+        {
+          "CodingTestName": "sadsad",
+          "CodingTestDescription": "adssad",
+          "codingTextAnswer": "sdfdsf"
+        }
+      ],
+      "completionDate": "2018-05-23T07:17:41.917Z",
+      "id": 4
+    },
+    {
+      "candidateName": "sadas",
+      "candidateEmail": "asd@sdf.dfs",
+      "testId": 2,
+      "examId": "vne5z89kslm",
+      "assignDate": "2018-05-23T07:18:16.166Z",
+      "MCQQuestions": [
+        {
+          "Question": "test 2 question 1",
+          "Answers": "A"
+        },
+        {
+          "Question": "test 2 question 2",
+          "Answers": "C"
+        }
+      ],
+      "id": 5
+    },
+    {
+      "candidateName": "dsf",
+      "candidateEmail": "dfsdf@sd.www",
+      "testId": 4,
+      "examId": "yrkerubfox",
+      "assignDate": "2018-05-23T07:19:00.614Z",
+      "MCQQuestions": [
+        {
+          "Question": "asd",
+          "Answers": "B"
+        }
+      ],
+      "completionDate": "2018-05-23T07:19:06.590Z",
+      "id": 6
     }
   ]
 }

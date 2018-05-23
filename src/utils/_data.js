@@ -8,6 +8,18 @@ const config = {
   },
 }
 
+// Auth
+export async function login(email, password) {
+  const url = utils.getURL(`users?email=${email}&password=${password}`);
+  const res = await axios.get(url, config)
+  return res.data;
+}
+
+export async function logOut() {
+  localStorage.removeItem('user');
+  window.location.href = '/'
+}
+
 // Common Api
 export async function getUsersList() {
   const url = utils.getURL(`users`);
@@ -88,6 +100,13 @@ export async function updateTestDetails(data) {
 }
 
 // invite candidate
+
+
+export async function getAllInvitedCandidates() {
+  const url = utils.getURL(`invitedCandidates`);
+  const res = await axios.get(url, config);
+  return res.data;
+}
 
 export async function inviteCandidateForTest(data) {
   const url = utils.getURL('invitedCandidates');

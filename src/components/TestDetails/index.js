@@ -90,7 +90,6 @@ class TestDetails extends Component {
                 ...this.state.addTest,
                 testName: res.testName,
                 testId: res.id,
-                id: res.id,
               },
             })
           }
@@ -241,7 +240,7 @@ class TestDetails extends Component {
   };
 
   onSave = (status) => {
-    const { fields, addTest, newTest, testDetails } = this.state;
+    const { fields, addTest, newTest } = this.state;
     const _this = this;
     let validationErrors = {};
     Object.keys(fields).forEach(name => {
@@ -282,14 +281,14 @@ class TestDetails extends Component {
       if(newTest) {
         addNewTestDetails(addTest).then((res) => {
           if(res) {
-            _this.getTestDetails(testDetails.id);
+            _this.getTestDetails(res.testId);
             _this.handleMCQModal();
           }
         })
       } else {
         updateTestDetails(addTest).then((res) => {
           if(res) {
-            _this.getTestDetails(testDetails.id);
+            _this.getTestDetails(res.testId);
             _this.handleMCQModal();
           }
         })
@@ -356,7 +355,7 @@ class TestDetails extends Component {
       this.setState({errors: validationErrors});
       return;
     }
-    inviteCandidate.testId = testDetails.id;
+    inviteCandidate.testId = testDetails.testId;
     inviteCandidate.examId = Math.random().toString(36).replace('0.', '');
     inviteCandidate.assignDate = new Date();
     inviteCandidateForTest(inviteCandidate).then((res) => {

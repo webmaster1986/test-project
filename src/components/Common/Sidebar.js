@@ -19,9 +19,13 @@ const Sidebar = ({location: {pathname}}) => {
             <small>Tests</small>
             <i className="fa fa-angle-right"/>
           </Link>
-          <Link to={'/login'} className={`${pathname === '/login' && 'active' }`}>
-              <small>Login</small>
-              <i className="fa fa-angle-right"/>
+          <Link to={'/candidates'} className={`${pathname === '/candidates' && 'active' }`}>
+            <small>Candidates</small>
+            <i className="fa fa-angle-right"/>
+          </Link>
+          <Link to={'/evaluations'} className={`${pathname === '/evaluations' && 'active' }`}>
+            <small>Evaluations</small>
+            <i className="fa fa-angle-right"/>
           </Link>
         </li>
       </ul>

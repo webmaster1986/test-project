@@ -1,124 +1,124 @@
 import React, {Component} from 'react'
+import {login} from "../../utils/_data";
 import "./Login.css"
 
 class Login extends Component{
-    state = {
-        fields: {
-            email: '',
-            password: '',
-        },
+  state = {
+    fields: {
+      email: '',
+      password: '',
+    },
+    errors: {
+      email: '',
+      password: '',
+    }
+  }
+
+  onChange = (e) => {
+    this.setState({
+      errors: {
+        ...this.state.errors,
+        [e.target.name]: this.validate(e.target.name, e.target.value),
+      },
+      fields: {
+        ...this.state.fields,
+        [e.target.name]: e.target.value,
+      }
+    });
+  }
+
+
+  validate = (name, value) => {
+    switch (name) {
+      case 'email':
+        if (!value) {
+          return 'Email Is Required';
+        } else if (!value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+          return 'Email Is Invalid';
+        } else {
+          return '';
+        }
+      case 'password':
+        if (!value) {
+          return 'Password is Required';
+        } else {
+          return '';
+        }
+      default: {
+        return ''
+      }
+    }
+  }
+
+  onSave = () => {
+    const {fields} = this.state;
+    let validationErrors = {};
+    Object.keys(fields).forEach(name => {
+      const error = this.validate(name, fields[name]);
+      if (error && error.length > 0) {
+        validationErrors[name] = error;
+      }
+    });
+
+    if (Object.keys(validationErrors).length > 0) {
+      this.setState({errors: validationErrors});
+      return;
+    }
+
+    login(fields.email, fields.password).then((res)=> {
+     if(res.length) {
+        localStorage.setItem('user', JSON.stringify(res[0]));
+        this.props.history.push('/overview');
+     } else {
+       this.setState(prevState => ({
+         errors: {
+             ...prevState.errors,
+            unAuth: "Username and Password is Invalid"
+         }
+       }));
+     }
+    }).catch(err =>
+      this.setState(prevState => ({
         errors: {
-            email: '',
-            password: '',
-        },
-        login: [],
-    }
-
-    onChange = (e) => {
-        this.setState({
-            errors: {
-                ...this.state.errors,
-                [e.target.name]: this.validate(e.target.name, e.target.value),
-            },
-            fields: {
-                ...this.state.fields,
-                [e.target.name]: e.target.value,
-            }
-        });
-    }
-
-
-    validate = (name, value) => {
-        switch (name) {
-            case 'email':
-                if (!value) {
-                    return 'Email Is Required';
-                } else if (!value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
-                    return 'Email Is Invalid';
-                } else {
-                    return '';
-                }
-            case 'password':
-                if (!value) {
-                    return 'Password is Required';
-                } else {
-                    return '';
-                }
-            default: {
-                return ''
-            }
+          ...prevState.errors,
+          unAuth: "Username and Password is Invalid"
         }
-    }
+      }))
+    );
+  }
 
-    onSave = () => {
-        const { fields, login} = this.state;
-        let validationErrors = {};
-        Object.keys(fields).forEach(name => {
-            const error = this.validate(name, fields[name]);
-            if (error && error.length > 0) {
-                validationErrors[name] = error;
-            }
-        });
-        if (Object.keys(validationErrors).length > 0) {
-            this.setState({errors: validationErrors});
-            return;
-        }
+  render() {
+    const {errors, fields} = this.state;
 
-            login.push(fields);
-            this.setState({
-                login: login
-            });
-            console.log(login);
-    }
-
-    render(){
-        return(
-            <div className="container">
-                <div className="row">
-                    <div className="form_bg">
-                            <div style={{color: "black"}}>
-                            <h1>Log in</h1>
-                            </div>
-                                <br/>
-                            <div className="form-group" >
-                                <input type="email"
-                                       className="form-control form-control-lg"
-                                       name="email"
-                                       value={this.state.fields.email}
-                                       onChange={this.onChange}
-                                       id="userid"
-                                       style={{height: "70px", marginTop: "-35px"}}
-                                       placeholder="Username"/>
-                                <small className="text-danger" style={{fontSize: "50%",fontWeight: "bold"}}>{this.state.errors.email}</small>
-                            </div>
-                            <div className="form-group">
-                                <input type="password"
-                                       className="form-control form-control-lg"
-                                       name="password"
-                                       value={this.state.fields.password}
-                                       onChange={this.onChange}
-                                       id="pwd"
-                                       style={{height: "70px"}}
-                                       placeholder="Password"/>
-                                <small className="text-danger" style={{fontSize: "50%",fontWeight: "bold"}}>{this.state.errors.password}</small>
-                            </div>
-                            <br/>
-                            <div className="form-group">
-                                <button type="submit"
-                                        className="btn btn-primary mb1 bg-teal btn-lg btn-block"
-                                        id="login"
-                                        style={{height: "70px", marginTop: "-32px"}}
-                                        onClick={this.onSave}>Login</button>
-                            </div>
-                            <div className="form-group">
-                                <a style={{cursor: "cursor", color: "cornflowerblue"}}>Forgot Your Password?</a>
-                            </div>
-
-                    </div>
-                </div>
+    return (
+      <div className="container login-page">
+        <div className="row">
+          <div className="col-sm-6 offset-sm-3 col-md-6 offset-md-3 col-xs-12 mt-5">
+            <div>
+              <h1>Log in</h1>
             </div>
-        )
-    }
+            <small className="text-danger">{errors.unAuth}</small>
+            <div className="form-group mt-4">
+              <input type="email" className="form-control form-control-lg" name="email" value={fields.email}
+                     onChange={this.onChange} placeholder="Username"/>
+              <small className="text-danger">{errors.email}</small>
+            </div>
+            <div className="form-group">
+              <input type="password" className="form-control form-control-lg" name="password"
+                     value={fields.password} onChange={this.onChange} placeholder="Password"/>
+              <small className="text-danger">{errors.password}</small>
+            </div>
+            <div className="form-group">
+              <button className="btn btn-primary mb1 bg-teal btn-lg btn-block" onClick={this.onSave}>Login</button>
+            </div>
+            <div className="form-group">
+              <a className="text-info">Forgot Your Password?</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
 }
 
 export default Login
