@@ -68,7 +68,7 @@ class Login extends Component{
     login(fields.email, fields.password).then((res)=> {
      if(res.length) {
         localStorage.setItem('user', JSON.stringify(res[0]));
-        this.props.history.push('/overview');
+        window.location.href = '/overview';
      } else {
        this.setState(prevState => ({
          errors: {

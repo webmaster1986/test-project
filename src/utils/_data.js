@@ -1,6 +1,6 @@
 import axios from 'axios'
 import utils from './index'
-
+const user =  localStorage.getItem('user') && JSON.parse(localStorage.getItem('user'));
 const config = {
   headers: {
     Accept: 'application/json',
@@ -62,13 +62,13 @@ export async function getTestDetailsById(testId) {
 }*/
 
 export async function getTests() {
-  const url = utils.getURL(`tests`);
+  const url = utils.getURL(`tests?companyId=${user.companyId}`);
   const res = await axios.get(url, config);
   return res.data;
 }
 
 export async function getTestById(testId) {
-  const url = utils.getURL(`tests/${testId}`);
+  const url = utils.getURL(`tests/${testId}?companyId=${user.companyId}`);
   const res = await axios.get(url, config);
   return res.data;
 }
@@ -103,7 +103,7 @@ export async function updateTestDetails(data) {
 
 
 export async function getAllInvitedCandidates() {
-  const url = utils.getURL(`invitedCandidates`);
+  const url = utils.getURL(`invitedCandidates?companyId=${user.companyId}`);
   const res = await axios.get(url, config);
   return res.data;
 }
@@ -115,13 +115,13 @@ export async function inviteCandidateForTest(data) {
 }
 
 export async function getCandidateInvitation(examId) {
-  const url = utils.getURL(`invitedCandidates?examId=${examId}`);
+  const url = utils.getURL(`invitedCandidates?examId=${examId}&companyId=${user.companyId}`);
   const res = await axios.get(url, config);
   return res.data;
 }
 
 export async function getInvitedCandidates(testId) {
-  const url = utils.getURL(`invitedCandidates?testId=${testId}`);
+  const url = utils.getURL(`invitedCandidates?testId=${testId}&companyId=${user.companyId}`);
   const res = await axios.get(url, config);
   return res.data;
 }
@@ -141,13 +141,13 @@ export async function updateCandidateAnswer(candidate) {
 }
 
 export async function getCandidateAnswer(examId) {
-  const url = utils.getURL(`candidateAnswers?examId=${examId}`);
+  const url = utils.getURL(`candidateAnswers?examId=${examId}&companyId=${user.companyId}`);
   const res = await axios.get(url, config);
   return res.data;
 }
 
 export async function getAllCandidateAnswer() {
-  const url = utils.getURL(`candidateAnswers`);
+  const url = utils.getURL(`candidateAnswers?companyId=${user.companyId}`);
   const res = await axios.get(url, config);
   return res.data;
 }

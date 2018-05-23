@@ -11,6 +11,7 @@ import Sidebar from "./components/Common/Sidebar";
 import Login from "./components/Login"
 import Evaluations from "./components/Evaluations";
 import Candidates from "./components/Candidates";
+import ExamEvaluation from "./components/ExamEvaluation";
 
 class App extends Component {
   render() {
@@ -32,6 +33,7 @@ class App extends Component {
                     <Route path="/tests" component={Tests}/>
                     <Route path="/testDetails/:testId" component={TestDetails}/>
                     <Route path="/test/:testName/:examId" component={Invitation}/>
+                    <Route path="/:examId" component={ExamEvaluation}/>
                     <Route path="/" component={OverView}/>
                   </Switch>
                 </div>

@@ -21,6 +21,10 @@ class OverView extends Component {
   }
 
   componentWillMount() {
+    const user =  localStorage.getItem('user') && JSON.parse(localStorage.getItem('user'));
+    this.setState({
+      user
+    })
     this.getAllTests();
   }
 
@@ -66,7 +70,7 @@ class OverView extends Component {
   }
 
   onSave = () => {
-    const { fields, tests} = this.state;
+    const { fields, tests, user} = this.state;
     let validationErrors = {};
     Object.keys(fields).forEach(name => {
       const error = this.validate(name, fields[name]);
@@ -78,6 +82,9 @@ class OverView extends Component {
       this.setState({errors: validationErrors});
       return;
     }
+
+    fields.companyName = user.companyName;
+    fields.companyId = user.companyId;
 
     addTest(fields).then((res) => {
       tests.push(res);

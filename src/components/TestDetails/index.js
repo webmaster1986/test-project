@@ -62,14 +62,19 @@ class TestDetails extends Component {
 
   componentWillMount() {
     const testId = (this.props.history.location && this.props.history.location.pathname.split('/')[2]) || '';
-
-    if(testId) {
-      this.getTestDetails(testId);
-      this.getAllCandidates(testId)
-    }
+    const user =  localStorage.getItem('user') && JSON.parse(localStorage.getItem('user'));
+    this.setState({
+      user
+    },() => {
+      if(testId) {
+        this.getTestDetails(testId);
+        this.getAllCandidates(testId)
+      }
+    })
   }
 
   getTestDetails = (testId) => {
+    const {user} = this.state;
     getTestDetailsById(testId).then( res => {
       if(res && res.length) {
         this.setState({
@@ -90,6 +95,8 @@ class TestDetails extends Component {
                 ...this.state.addTest,
                 testName: res.testName,
                 testId: res.id,
+                companyName: user.companyName,
+                companyId: user.companyId,
               },
             })
           }
@@ -343,7 +350,7 @@ class TestDetails extends Component {
   }
 
   onInviteSave = () => {
-    const { inviteCandidate, testDetails, candidates } = this.state;
+    const { inviteCandidate, testDetails, candidates, user } = this.state;
     let validationErrors = {};
     Object.keys(inviteCandidate).forEach(name => {
       const error = this.validate(name, inviteCandidate[name]);
@@ -358,6 +365,8 @@ class TestDetails extends Component {
     inviteCandidate.testId = testDetails.testId;
     inviteCandidate.examId = Math.random().toString(36).replace('0.', '');
     inviteCandidate.assignDate = new Date();
+    inviteCandidate.companyName = user.companyName;
+    inviteCandidate.companyId = user.companyId;
     inviteCandidateForTest(inviteCandidate).then((res) => {
       if(res) {
         candidates.push(res);
