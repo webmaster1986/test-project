@@ -11,22 +11,22 @@ class Candidates extends Component{
     this.getAllCandidates();
   }
 
-  getAllCandidates = () => {
-    getAllInvitedCandidates().then(candidates => {
-      getAllCandidateAnswer().then(candidatesAnswer => {
-        if(candidates && Array.isArray(candidates)) {
-          candidates.forEach(candidate => {
-            const answer = candidatesAnswer.filter(answer => answer.examId === candidate.examId)
-            if(answer.length) {
-              candidate = answer[0]
-            }
-          })
-          this.setState({
-            candidates
-          })
+  getAllCandidates = async () => {
+    let candidates = await getAllInvitedCandidates();
+    const candidatesAnswer = await getAllCandidateAnswer();
+
+    if(candidates && Array.isArray(candidates)) {
+      candidates = candidates.map(candidate => {
+        const answer = candidatesAnswer.filter(answer => answer.examId === candidate.examId)
+        if(answer.length) {
+          return answer[0]
         }
-      }).catch(err => console.log(err));
-    }).catch(err => console.log(err));
+        return candidate
+      })
+      this.setState({
+        candidates
+      })
+    }
   }
 
   render() {

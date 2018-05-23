@@ -25,21 +25,20 @@ class ExamEvaluation extends Component{
     }
   }
 
-  getAnswers = (examId) => {
-    getCandidateAnswer(examId).then(candidateAnswers => {
-      if(candidateAnswers && Array.isArray(candidateAnswers) && candidateAnswers.length) {
-        getTestDetailsById(candidateAnswers[0].testId).then(testDetails => {
-          if(testDetails && Array.isArray(testDetails) && testDetails.length) {
-            candidateAnswers = candidateAnswers[0];
-            candidateAnswers.testDetails = testDetails[0];
-            this.setState({
-              candidateAnswers,
-              pages: (testDetails[0].MCQQuestions && Math.ceil(testDetails[0].MCQQuestions.length/3)) || 0,
-            })
-          }
-        }).catch(err => console.log(err));
+  getAnswers = async (examId) => {
+    let candidateAnswers = await getCandidateAnswer(examId)
+
+    if(candidateAnswers && Array.isArray(candidateAnswers) && candidateAnswers.length) {
+      const testDetails = await getTestDetailsById(candidateAnswers[0].testId)
+      if(testDetails && Array.isArray(testDetails) && testDetails.length) {
+        candidateAnswers = candidateAnswers[0];
+        candidateAnswers.testDetails = testDetails[0];
+        this.setState({
+          candidateAnswers,
+          pages: (testDetails[0].MCQQuestions && Math.ceil(testDetails[0].MCQQuestions.length/3)) || 0,
+        })
       }
-    }).catch(err => console.log(err));
+    }
   }
 
   pagination = (currentPage) => {

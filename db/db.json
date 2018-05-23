@@ -85,6 +85,13 @@
       "companyName": "ebay",
       "companyId": 1,
       "id": 6
+    },
+    {
+      "testName": "test6",
+      "description": "test 6",
+      "companyName": "ebay",
+      "companyId": 1,
+      "id": 7
     }
   ],
   "testDetails": [
@@ -261,6 +268,22 @@
       "companyName": "ebay",
       "companyId": 1,
       "id": 5
+    },
+    {
+      "testName": "test6",
+      "testId": 7,
+      "MCQCount": "",
+      "MCQQuestions": [],
+      "CodingTestCount": 1,
+      "CodingTests": [
+        {
+          "CodingTestName": "df",
+          "CodingTestDescription": "dsfdsf"
+        }
+      ],
+      "companyName": "ebay",
+      "companyId": 1,
+      "id": 6
     }
   ],
   "candidates": [],

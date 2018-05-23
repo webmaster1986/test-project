@@ -73,52 +73,48 @@ class TestDetails extends Component {
     })
   }
 
-  getTestDetails = (testId) => {
+  getTestDetails = async (testId) => {
     const {user} = this.state;
-    getTestDetailsById(testId).then( res => {
-      if(res && res.length) {
+    const res = await getTestDetailsById(testId)
+    if(res && res.length) {
+      this.setState({
+        newTest: false,
+        loading: false,
+        testDetails: res[0] || {},
+        pages: (res[0].MCQQuestions && Math.ceil(res[0].MCQQuestions.length/3)) || 0,
+        addTest: res[0] || {...this.state.addTest},
+      })
+    } else {
+      const res1 = await getTestById(testId)
+      if(res1) {
         this.setState({
-          newTest: false,
+          newTest: true,
           loading: false,
-          testDetails: res[0] || {},
-          pages: (res[0].MCQQuestions && Math.ceil(res[0].MCQQuestions.length/3)) || 0,
-          addTest: res[0] || {...this.state.addTest},
+          testDetails: res1,
+          addTest: {
+            ...this.state.addTest,
+            testName: res1.testName,
+            testId: res1.id,
+            companyName: user.companyName,
+            companyId: user.companyId,
+          },
         })
-      } else {
-        getTestById(testId).then(res => {
-          if(res) {
-            this.setState({
-              newTest: true,
-              loading: false,
-              testDetails: res,
-              addTest: {
-                ...this.state.addTest,
-                testName: res.testName,
-                testId: res.id,
-                companyName: user.companyName,
-                companyId: user.companyId,
-              },
-            })
-          }
-        });
       }
-    }).catch(err => console.log(err));
+    }
   }
 
-  getAllCandidates = (testId) => {
-    getInvitedCandidates(testId).then( candidates => {
-      getAllCandidateAnswer().then( candidatesAnswers => {
-        candidates.forEach(candidate => {
-          const answers = candidatesAnswers.filter(answer => candidate.examId === answer.examId);
-          if(answers.length) {
-            candidate.completionDate = answers[0].completionDate;
-          }
-        });
-        this.setState({
-          candidates,
-        })
-      }).catch(err => console.log(err));
-    }).catch(err => console.log(err));
+  getAllCandidates = async (testId) => {
+    const candidates = await getInvitedCandidates(testId)
+    const candidatesAnswers = await getAllCandidateAnswer()
+    candidates.forEach(candidate => {
+      const answers = candidatesAnswers.filter(answer => candidate.examId === answer.examId);
+      if(answers.length) {
+        candidate.completionDate = answers[0].completionDate;
+      }
+    });
+    this.setState({
+      candidates,
+    })
   }
 
   pagination = (currentPage) => {
