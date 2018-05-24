@@ -16,7 +16,9 @@ class ExamEvaluation extends Component{
     startIndex: 0,
     endIndex: 3,
     currentPage: 1,
-    examStatus: ""
+    examStatus: "",
+    percentageView: true,
+    percentage: 0
   }
 
   componentWillMount() {
@@ -84,8 +86,15 @@ class ExamEvaluation extends Component{
 
     this.setState({
       score: score.length,
+      percentage: (score.length*100)/Questions.length,
       candidateAnswers,
     })
+  }
+
+  viewAnswer = () => {
+    this.setState(prevState => ({
+      percentageView: !prevState.percentageView
+    }));
   }
 
   render() {
@@ -110,7 +119,7 @@ class ExamEvaluation extends Component{
         </div>
         <b>Score: {score}</b>
         <div className="row">
-          {examStatus && (examStatus === 1 || examStatus === 2 ) && <QuestionAnswerList startIndex={startIndex} queCount={queCount} examStatus={examStatus} questionByPage={questionByPage} pageContents={pageContents}/>}
+          {examStatus && (examStatus === 1 || examStatus === 2 ) && <QuestionAnswerList state={this.state} queCount={queCount} questionByPage={questionByPage} pageContents={pageContents} viewAnswer={this.viewAnswer}/>}
           {examStatus && (examStatus === 1 || examStatus === 3 ) && <AnswerCodingContent examStatus={examStatus} testDetails={testDetails} /> }
         </div>
       </div>

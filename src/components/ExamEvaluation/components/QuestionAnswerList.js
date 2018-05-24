@@ -1,12 +1,15 @@
 import React from 'react';
+import CircularProgressbar from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 const QuestionAnswerList = props => {
-  const {questionByPage, pageContents, startIndex, queCount, examStatus} = props;
+  const {startIndex, examStatus, percentageView, percentage} = props.state;
+  const {questionByPage, pageContents, queCount,} = props;
   return (
     <div className={`col-sm-12 ${examStatus === 2 ? 'col-md-12' : 'col-md-7'} col-xs-12 mt-3`}>
       <div className="card">
         {
-          questionByPage.length ?
+          !percentageView && questionByPage.length ?
           <div className="card-body">
             <div className='row'>
               <div className='col-md-8 col-sm-12 col-xs-12'>
@@ -14,7 +17,7 @@ const QuestionAnswerList = props => {
                 <h6 className="card-subtitle text-secondary mb-2"><b>MCQ Test</b></h6>
               </div>
               <div className='col-md-4 col-sm-12 col-xs-12 text-right'>
-                <a className="mr-3 text-secondary">X</a>
+                <a className="mr-3 text-secondary" onClick={props.viewAnswer}>X</a>
               </div>
             </div>
             <div className="card-text text-muted">
@@ -36,12 +39,18 @@ const QuestionAnswerList = props => {
           </div>
           :
           <div className="card-body text-center p-5">
-            <h4 className="text-dark">Add MCQ Test</h4>
-            <p className="text-muted mt-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
+            <div className='row'>
+              <div className='col-md-12 col-sm-12 col-xs-12'>
+                <div className="mb-1 text-muted"><small>#MCQ346565</small></div>
+                <h6 className="card-subtitle text-secondary mb-2"><b>MCQ Test</b></h6>
+              </div>
+            </div>
             <div className="mt-4">
-              <button className="btn btn-success btn-rounded">Add MCQ Test</button>
+              <CircularProgressbar
+                percentage={percentage}
+                className="circular-progressbar"
+              />
+              <button className="btn btn-success btn-rounded" onClick={props.viewAnswer}>View Answer</button>
             </div>
           </div>
         }

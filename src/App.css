@@ -102,3 +102,16 @@
 .pointer {
   cursor: pointer;
 }
+
+.circular-progressbar {
+  width: 50vw;
+  height: 40vh;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+  fill: rgb(40, 167, 68) !important;
+}
+
+.CircularProgressbar .CircularProgressbar-path {
+  stroke: rgb(40, 167, 68) !important;
+}
