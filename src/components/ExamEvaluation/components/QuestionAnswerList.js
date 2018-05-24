@@ -3,8 +3,9 @@ import CircularProgressbar from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 const QuestionAnswerList = props => {
-  const {startIndex, examStatus, percentageView, percentage} = props.state;
+  const {startIndex, examStatus, percentageView, percentage, score, candidateAnswers} = props.state;
   const {questionByPage, pageContents, queCount,} = props;
+  const totalQuestion = (candidateAnswers && candidateAnswers.testDetails && candidateAnswers.testDetails.MCQQuestions && candidateAnswers.testDetails.MCQQuestions.length) || 0;
   return (
     <div className={`col-sm-12 ${examStatus === 2 ? 'col-md-12' : 'col-md-7'} col-xs-12 mt-3`}>
       <div className="card">
@@ -48,9 +49,13 @@ const QuestionAnswerList = props => {
             <div className="mt-4">
               <CircularProgressbar
                 percentage={percentage}
+                strokeWidth={3}
+                textForPercentage={(percentage) => {
+                  return percentage ? `${score}/${totalQuestion}` : `0/${totalQuestion}`
+                }}
                 className="circular-progressbar"
               />
-              <button className="btn btn-success btn-rounded" onClick={props.viewAnswer}>View Answer</button>
+              <button className="btn btn-success btn-rounded mt-4" onClick={props.viewAnswer}>View Answer</button>
             </div>
           </div>
         }

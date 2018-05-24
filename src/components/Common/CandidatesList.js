@@ -27,7 +27,7 @@ const CandidatesList = (props) => {
           {
             candidates && candidates.length > 0 ? candidates.map((candidate, i) => (
               <tr key={i}>
-                <td><a href={`${isEvaluation ? candidate.examId : '/'}`} className="text-primary pointer font-weight-bold"><u>#{candidate.examId}</u></a></td>
+                <td>{ isEvaluation ? <a href={candidate.examId} className="text-primary pointer font-weight-bold"><u>#{candidate.examId}</u></a> : `#${candidate.examId}`}</td>
                 <td>{`${candidate.candidateName}`}</td>
                 <td>{candidate.candidateEmail}</td>
                 <td>{candidate.testName}</td>

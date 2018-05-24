@@ -117,7 +117,6 @@ class ExamEvaluation extends Component{
             <span className="inline-block">{candidateAnswers && moment(candidateAnswers.completionDate).format('MM/DD/YYYY hh:mm a')}</span>
           </div>
         </div>
-        <b>Score: {score}</b>
         <div className="row">
           {examStatus && (examStatus === 1 || examStatus === 2 ) && <QuestionAnswerList state={this.state} queCount={queCount} questionByPage={questionByPage} pageContents={pageContents} viewAnswer={this.viewAnswer}/>}
           {examStatus && (examStatus === 1 || examStatus === 3 ) && <AnswerCodingContent examStatus={examStatus} testDetails={testDetails} /> }
