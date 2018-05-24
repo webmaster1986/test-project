@@ -1,5 +1,11 @@
 import React, {Component} from 'react'
-import {getAllCandidateAnswer, getAllInvitedCandidates, getTests} from "../../utils/_data";
+import swal from "sweetalert";
+import {
+  getAllCandidateAnswer,
+  getAllInvitedCandidates,
+  getTests,
+  deleteInvitedCandidateById,
+} from "../../utils/_data";
 import CandidatesList from "../Common/CandidatesList";
 
 class Candidates extends Component{
@@ -24,8 +30,7 @@ class Candidates extends Component{
           candidate.testName = test[0].testName
         }
         if(answer.length) {
-
-          return { ...candidate, ...answer[0]}
+          return { ...candidate, ...answer[0], id: candidate.id}
         }
         return candidate
       })
@@ -35,10 +40,29 @@ class Candidates extends Component{
     }
   }
 
+  onDelCandidate = (id) => {
+    const _this = this;
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this candidate details",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then( async (status) => {
+      if(status) {
+        await deleteInvitedCandidateById(id);
+        _this.getAllCandidates();
+        swal("Candidate has been deleted!", {
+          icon: "success",
+        });
+      }
+    });
+  }
+
   render() {
     const {candidates} = this.state;
     return (
-      <CandidatesList candidates={candidates} title={"Candidates"} />
+      <CandidatesList candidates={candidates} title={"Candidates"} onDelCandidate={this.onDelCandidate}/>
     )
   }
 }

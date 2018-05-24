@@ -2,7 +2,7 @@ import React from 'react'
 import moment from "moment/moment";
 import './CandidatesList.css'
 
-const CandidatesList = (props) => {
+const   CandidatesList = (props) => {
   const {candidates, title, isEvaluation} = props;
   return (
     <div className='row candidates mt-2'>
@@ -34,9 +34,9 @@ const CandidatesList = (props) => {
                 <td>{candidate.assignDate ? moment(candidate.assignDate).format('MM/DD/YYYY') : '---'}</td>
                 <td>{candidate.completionDate ? moment(candidate.completionDate).format('MM/DD/YYYY') : <span className="text-success">In Progress</span>}</td>
                 <td>Score</td>
-                <td><a className="link" >Delete</a></td>
+                <td><a className="link" onClick={() => props.onDelCandidate(candidate.id)}>Delete</a></td>
               </tr>
-            )) : <tr className="text-center"><td colSpan={5}> Candidate not found </td></tr>
+            )) : <tr className="text-center"><td colSpan={8}> Candidate not found </td></tr>
           }
           </tbody>
         </table>

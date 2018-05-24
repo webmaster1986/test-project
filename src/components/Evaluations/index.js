@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import {getAllCandidateAnswer, getTests} from "../../utils/_data";
+import swal from "sweetalert";
+import {deleteInvitedCandidateById, getAllCandidateAnswer, getAllInvitedCandidates, getTests} from "../../utils/_data";
 import CandidatesList from "../Common/CandidatesList";
 
 class Evaluations extends Component{
@@ -12,7 +13,7 @@ class Evaluations extends Component{
   }
 
   getAllCandidates = async () => {
-    let candidates = await getAllCandidateAnswer()
+    /*let candidates = await getAllCandidateAnswer()
     const tests = await getTests()
 
     if(candidates && Array.isArray(candidates)) {
@@ -27,13 +28,53 @@ class Evaluations extends Component{
       this.setState({
         candidates
       })
+    }*/
+    let candidates = await getAllInvitedCandidates();
+    const candidatesAnswer = await getAllCandidateAnswer();
+    const tests = await getTests()
+
+    if(candidates && Array.isArray(candidates)) {
+      candidates = candidates.map(candidate => {
+        const answer = candidatesAnswer.filter(answer => answer.examId === candidate.examId)
+        const test = tests.filter(test => test.id === candidate.testId)
+        if(test.length) {
+          candidate.testName = test[0].testName
+        }
+        if(answer.length) {
+          return { ...candidate, ...answer[0], id: candidate.id}
+        }
+        return {}
+      })
+      candidates = candidates.filter((item) => Object.keys(item).length);
+      this.setState({
+        candidates
+      })
     }
+  }
+
+  onDelCandidate = (id) => {
+    const _this = this;
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this candidate details",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then( async (status) => {
+      if(status) {
+        await deleteInvitedCandidateById(id);
+        _this.getAllCandidates();
+        swal("Candidate has been deleted!", {
+          icon: "success",
+        });
+      }
+    });
   }
 
   render() {
     const {candidates} = this.state;
     return (
-      <CandidatesList candidates={candidates} title={"Evaluation Candidates"} isEvaluation={true}/>
+      <CandidatesList candidates={candidates} title={"Evaluation Candidates"} onDelCandidate={this.onDelCandidate} isEvaluation={true}/>
     )
   }
 }

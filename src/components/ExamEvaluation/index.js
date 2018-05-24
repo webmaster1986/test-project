@@ -98,7 +98,7 @@ class ExamEvaluation extends Component{
   }
 
   render() {
-    const { candidateAnswers, startIndex, endIndex, pages, currentPage, examStatus, score } = this.state;
+    const { candidateAnswers, startIndex, endIndex, pages, currentPage, examStatus } = this.state;
     const testDetails = candidateAnswers.testDetails;
     const queCount = ['A', 'B', 'C', 'D', 'E', 'F'];
     const questionByPage = (testDetails && testDetails.MCQQuestions && testDetails.MCQQuestions.length && testDetails.MCQQuestions.slice(startIndex, endIndex)) || [];

@@ -400,16 +400,6 @@
   "candidates": [],
   "invitedCandidates": [
     {
-      "candidateName": "sf",
-      "candidateEmail": "sdf@fa.ca",
-      "testId": 1,
-      "companyName": "ebay",
-      "companyId": 1,
-      "examId": "y98ep7gdm7s",
-      "assignDate": "2018-05-21T23:30:50.871Z",
-      "id": 1
-    },
-    {
       "candidateName": "candidate 1",
       "candidateEmail": "candidate1@gmail.com",
       "testId": 2,
@@ -418,56 +408,6 @@
       "examId": "brxf4anbl29",
       "assignDate": "2018-05-23T09:35:30.184Z",
       "id": 2
-    },
-    {
-      "candidateName": "candidate 2",
-      "candidateEmail": "candidate2@gmail.com",
-      "testId": 2,
-      "companyName": "ebay",
-      "companyId": 2,
-      "examId": "pmpu9mbzsf",
-      "assignDate": "2018-05-23T09:36:06.802Z",
-      "id": 3
-    },
-    {
-      "candidateName": "candidate 3",
-      "candidateEmail": "candidate3@gmail.com",
-      "testId": 2,
-      "companyName": "ebay",
-      "companyId": 2,
-      "examId": "7o7bt7ya9by",
-      "assignDate": "2018-05-23T09:36:20.265Z",
-      "id": 4
-    },
-    {
-      "candidateName": "fdf",
-      "candidateEmail": "dsfdsf@dasd.ass",
-      "testId": 3,
-      "companyName": "ebay",
-      "companyId": 1,
-      "examId": "7ex1yuztpw9",
-      "assignDate": "2018-05-23T09:37:02.937Z",
-      "id": 5
-    },
-    {
-      "candidateName": "sdfsd",
-      "candidateEmail": "fdsf@dsf.sfd",
-      "testId": 3,
-      "companyName": "ebay",
-      "companyId": 1,
-      "examId": "qccnwlrboa",
-      "assignDate": "2018-05-23T09:37:19.465Z",
-      "id": 6
-    },
-    {
-      "candidateName": "sdf",
-      "candidateEmail": "sdfds@sdf.sdf",
-      "testId": 4,
-      "companyName": "ebay",
-      "companyId": 1,
-      "examId": "yspkzjiel1q",
-      "assignDate": "2018-05-23T09:37:42.482Z",
-      "id": 7
     },
     {
       "candidateName": "dfg",
@@ -548,113 +488,49 @@
       "companyName": "ebay",
       "companyId": 1,
       "id": 15
+    },
+    {
+      "candidateName": "cans",
+      "candidateEmail": "sd@df.fsd",
+      "testId": 4,
+      "examId": "psesgb44hkb",
+      "assignDate": "2018-05-24T10:25:56.993Z",
+      "companyName": "ebay",
+      "companyId": 1,
+      "id": 16
+    },
+    {
+      "candidateName": "vcbc",
+      "candidateEmail": "bvcb@fg.dfd",
+      "testId": 4,
+      "examId": "rqj39migmen",
+      "assignDate": "2018-05-24T10:26:15.870Z",
+      "companyName": "ebay",
+      "companyId": 1,
+      "id": 18
+    },
+    {
+      "candidateName": "sdf",
+      "candidateEmail": "dfdsf@dfdsf.fsd",
+      "testId": 4,
+      "examId": "w4axuo5wnr",
+      "assignDate": "2018-05-24T10:26:48.134Z",
+      "companyName": "ebay",
+      "companyId": 1,
+      "id": 19
+    },
+    {
+      "candidateName": "xzcxc",
+      "candidateEmail": "zxc@dg.fdg",
+      "testId": 4,
+      "examId": "oyz6lrym3w",
+      "assignDate": "2018-05-24T10:27:13.647Z",
+      "companyName": "ebay",
+      "companyId": 1,
+      "id": 21
     }
   ],
   "candidateAnswers": [
-    {
-      "candidateName": "sf",
-      "candidateEmail": "sdf@fa.ca",
-      "testId": 1,
-      "companyName": "ebay",
-      "companyId": 1,
-      "examId": "y98ep7gdm7s",
-      "assignDate": "2018-05-21T23:30:50.871Z",
-      "MCQQuestions": [
-        {
-          "Question": "fvd",
-          "Answers": "A"
-        }
-      ],
-      "completionDate": "2018-05-21T23:31:03.521Z",
-      "id": 1
-    },
-    {
-      "candidateName": "candidate 1",
-      "candidateEmail": "candidate1@gmail.com",
-      "testId": 2,
-      "companyName": "ebay",
-      "companyId": 2,
-      "examId": "brxf4anbl29",
-      "assignDate": "2018-05-23T09:35:30.184Z",
-      "MCQQuestions": [
-        {
-          "Question": "test 2 question 1",
-          "Answers": "A"
-        },
-        {
-          "Question": "test 2 question 2",
-          "Answers": "B"
-        }
-      ],
-      "id": 2,
-      "CodingTests": [
-        {
-          "CodingTestName": "CodingTest1",
-          "CodingTestDescription": "reverse a linked List",
-          "codingTextAnswer": "sadasdd"
-        }
-      ],
-      "completionDate": "2018-05-23T09:35:44.241Z"
-    },
-    {
-      "candidateName": "fdf",
-      "candidateEmail": "dsfdsf@dasd.ass",
-      "testId": 3,
-      "companyName": "ebay",
-      "companyId": 1,
-      "examId": "7ex1yuztpw9",
-      "assignDate": "2018-05-23T09:37:02.937Z",
-      "MCQQuestions": [
-        {
-          "Question": "sad",
-          "Answers": "B"
-        }
-      ],
-      "completionDate": "2018-05-23T09:37:09.874Z",
-      "id": 3
-    },
-    {
-      "candidateName": "dfg",
-      "candidateEmail": "dfgg@g.dfd",
-      "testId": 3,
-      "examId": "ckx5pndks65",
-      "assignDate": "2018-05-23T11:53:05.959Z",
-      "companyName": "ebay",
-      "companyId": 1,
-      "MCQQuestions": [
-        {
-          "Question": "sad",
-          "Answers": "A"
-        }
-      ],
-      "id": 4,
-      "CodingTests": [
-        {
-          "CodingTestName": "sad",
-          "CodingTestDescription": "sasadas",
-          "codingTextAnswer": "dfgfgdf"
-        }
-      ],
-      "completionDate": "2018-05-23T11:53:15.207Z"
-    },
-    {
-      "candidateName": "fgh",
-      "candidateEmail": "ghf@fg.gd",
-      "testId": 4,
-      "examId": "up8yi5ahh",
-      "assignDate": "2018-05-23T11:53:31.959Z",
-      "companyName": "ebay",
-      "companyId": 1,
-      "CodingTests": [
-        {
-          "CodingTestName": "asdsa",
-          "CodingTestDescription": "dasd",
-          "codingTextAnswer": "dsfsf"
-        }
-      ],
-      "completionDate": "2018-05-23T11:53:36.776Z",
-      "id": 5
-    },
     {
       "candidateName": "testCandi",
       "candidateEmail": "testCandi@gmail.com",
@@ -894,6 +770,60 @@
         }
       ],
       "completionDate": "2018-05-24T09:05:38.044Z"
+    },
+    {
+      "candidateName": "xzcxc",
+      "candidateEmail": "zxc@dg.fdg",
+      "testId": 4,
+      "examId": "oyz6lrym3w",
+      "assignDate": "2018-05-24T10:27:13.647Z",
+      "companyName": "ebay",
+      "companyId": 1,
+      "CodingTests": [
+        {
+          "CodingTestName": "asdsa",
+          "CodingTestDescription": "dasd",
+          "codingTextAnswer": "dfg"
+        }
+      ],
+      "completionDate": "2018-05-24T10:27:18.759Z",
+      "id": 12
+    },
+    {
+      "candidateName": "vxcv",
+      "candidateEmail": "xcv@dgf.dg",
+      "testId": 4,
+      "examId": "fhhtnpgeq94",
+      "assignDate": "2018-05-24T10:26:57.423Z",
+      "companyName": "ebay",
+      "companyId": 1,
+      "CodingTests": [
+        {
+          "CodingTestName": "asdsa",
+          "CodingTestDescription": "dasd",
+          "codingTextAnswer": "ghfghfghf"
+        }
+      ],
+      "completionDate": "2018-05-24T10:27:35.479Z",
+      "id": 13
+    },
+    {
+      "candidateName": "sdf",
+      "candidateEmail": "dfdsf@dfdsf.fsd",
+      "testId": 4,
+      "examId": "w4axuo5wnr",
+      "assignDate": "2018-05-24T10:26:48.134Z",
+      "companyName": "ebay",
+      "companyId": 1,
+      "CodingTests": [
+        {
+          "CodingTestName": "asdsa",
+          "CodingTestDescription": "dasd",
+          "codingTextAnswer": "dfgfgfdg"
+        }
+      ],
+      "completionDate": "2018-05-24T10:27:51.184Z",
+      "id": 14
     }
   ]
 }

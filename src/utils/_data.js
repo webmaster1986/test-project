@@ -107,6 +107,12 @@ export async function getAllInvitedCandidates() {
   return res.data;
 }
 
+export async function deleteInvitedCandidateById(id) {
+  const url = utils.getURL(`invitedCandidates/${id}`);
+  const res = await axios.delete(url, config);
+  return res.data;
+}
+
 export async function inviteCandidateForTest(data) {
   const url = utils.getURL('invitedCandidates');
   const res = await axios.post(url, data, config);
