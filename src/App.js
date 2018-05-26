@@ -12,6 +12,7 @@ import Login from "./components/Login"
 import Evaluations from "./components/Evaluations";
 import Candidates from "./components/Candidates";
 import ExamEvaluation from "./components/ExamEvaluation";
+import Welcome from "./components/Welcome";
 
 class App extends Component {
   render() {
@@ -21,19 +22,19 @@ class App extends Component {
         {
           user && user.email ?
             <div>
-              <Header/>
+              <Header user={user}/>
               <div className="wrapper toggled" id='wrapper'>
-                <Sidebar/>
+                <Sidebar user={user}/>
                 <div id='page-content-wrapper' className="page-content-wrapper">
                   <Switch>
                     <Route path="/overview" component={OverView}/>
                     <Route path="/settings" component={Settings}/>
-                    <Route path="/evaluations" component={Evaluations}/>
-                    <Route path="/candidates" component={Candidates}/>
-                    <Route path="/tests" component={Tests}/>
-                    <Route path="/testDetails/:testId" component={TestDetails}/>
+                    <Route path={`/${user.companyName}/evaluations`} component={Evaluations}/>
+                    <Route path={`/${user.companyName}/invitedCandidates`} component={Candidates}/>
+                    <Route path={`/${user.companyName}/tests`} component={Tests}/>
+                    <Route path={`/${user.companyName}/testDetails/:testId`} component={TestDetails}/>
                     <Route path="/test/:testName/:examId" component={Invitation}/>
-                    <Route path="/:examId" component={ExamEvaluation}/>
+                    <Route path={`/evaluations/:examId`} component={ExamEvaluation}/>
                     <Route path="/" component={OverView}/>
                   </Switch>
                 </div>
@@ -41,7 +42,10 @@ class App extends Component {
             </div>
             :
             <div>
-              <Route path="/" component={Login}/>
+              <Switch>
+                <Route path="/welcome" component={Welcome}/>
+                <Route path="/" component={Login}/>
+              </Switch>
             </div>
         }
       </div>

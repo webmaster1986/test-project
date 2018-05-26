@@ -3,7 +3,7 @@ import moment from "moment/moment";
 import './CandidatesList.css'
 
 const   CandidatesList = (props) => {
-  const {candidates, title, isEvaluation} = props;
+  const {candidates, title, isEvaluation, user} = props;
   return (
     <div className='row candidates mt-2'>
       <div className='col-sm-12 col-md-12 col-xs-12'>
@@ -27,7 +27,7 @@ const   CandidatesList = (props) => {
           {
             candidates && candidates.length > 0 ? candidates.map((candidate, i) => (
               <tr key={i}>
-                <td>{ isEvaluation ? <a href={candidate.examId} className="text-primary pointer font-weight-bold"><u>#{candidate.examId}</u></a> : `#${candidate.examId}`}</td>
+                <td>{ isEvaluation ? <a href={`/evaluations/${candidate.examId}`} className="text-primary pointer font-weight-bold"><u>#{candidate.examId}</u></a> : `#${candidate.examId}`}</td>
                 <td>{`${candidate.candidateName}`}</td>
                 <td>{candidate.candidateEmail}</td>
                 <td>{candidate.testName}</td>

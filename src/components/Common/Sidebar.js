@@ -2,7 +2,8 @@ import React from 'react'
 import {Link, withRouter} from 'react-router-dom'
 import './Sidebar.css';
 
-const Sidebar = ({location: {pathname}}) => {
+const Sidebar = ({location: {pathname}, user}) => {
+  console.log(user);
   return (
     <div className="sidebar-wrapper">
       <ul className="sidebar-nav">
@@ -15,15 +16,15 @@ const Sidebar = ({location: {pathname}}) => {
             <small>Settings</small>
             <i className="fa fa-angle-right"/>
           </Link>
-          <Link to={'/tests'} className={`${pathname === '/tests' && 'active' }`}>
+          <Link to={`/${user.companyName}/tests`} className={`${pathname === '/tests' && 'active' }`}>
             <small>Tests</small>
             <i className="fa fa-angle-right"/>
           </Link>
-          <Link to={'/candidates'} className={`${pathname === '/candidates' && 'active' }`}>
+          <Link to={`/${user.companyName}/invitedCandidates`} className={`${pathname === '/candidates' && 'active' }`}>
             <small>Candidates</small>
             <i className="fa fa-angle-right"/>
           </Link>
-          <Link to={'/evaluations'} className={`${pathname === '/evaluations' && 'active' }`}>
+          <Link to={`/${user.companyName}/evaluations`} className={`${pathname === '/evaluations' && 'active' }`}>
             <small>Evaluations</small>
             <i className="fa fa-angle-right"/>
           </Link>

@@ -17,7 +17,7 @@ export async function login(email, password) {
 
 export async function logOut() {
   localStorage.removeItem('user');
-  window.location.href = '/'
+  window.location.href = '/welcome'
 }
 
 // Common Api

@@ -528,6 +528,16 @@
       "companyName": "ebay",
       "companyId": 1,
       "id": 21
+    },
+    {
+      "candidateName": "ngh",
+      "candidateEmail": "fghf@rew.jh",
+      "testId": 2,
+      "examId": "nnd3iy6hx6",
+      "assignDate": "2018-05-26T04:54:45.473Z",
+      "companyName": "InfoSolve Technologies",
+      "companyId": 2,
+      "id": 22
     }
   ],
   "candidateAnswers": [
@@ -824,6 +834,34 @@
       ],
       "completionDate": "2018-05-24T10:27:51.184Z",
       "id": 14
+    },
+    {
+      "candidateName": "ngh",
+      "candidateEmail": "fghf@rew.jh",
+      "testId": 2,
+      "examId": "nnd3iy6hx6",
+      "assignDate": "2018-05-26T04:54:45.473Z",
+      "companyName": "InfoSolve Technologies",
+      "companyId": 2,
+      "MCQQuestions": [
+        {
+          "Question": "test 2 question 1",
+          "Answers": "A"
+        },
+        {
+          "Question": "test 2 question 2",
+          "Answers": "C"
+        }
+      ],
+      "id": 15,
+      "CodingTests": [
+        {
+          "CodingTestName": "CodingTest1",
+          "CodingTestDescription": "reverse a linked List",
+          "codingTextAnswer": "rtyrtytr"
+        }
+      ],
+      "completionDate": "2018-05-26T04:55:20.465Z"
     }
   ]
 }

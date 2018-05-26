@@ -18,14 +18,21 @@ class ExamEvaluation extends Component{
     currentPage: 1,
     examStatus: "",
     percentageView: true,
-    percentage: 0
+    percentage: 0,
+    error: '',
+    user: {},
   }
 
   componentWillMount() {
-    const examId = (this.props.history.location.pathname && this.props.history.location.pathname.split('/').length && this.props.history.location.pathname.split('/')[1]) || "";
-    if(examId) {
-      this.getAnswers(examId)
-    }
+    const examId = (this.props.history.location.pathname && this.props.history.location.pathname.split('/').length > 1 && this.props.history.location.pathname.split('/')[2]) || "";
+    const user =  localStorage.getItem('user') && JSON.parse(localStorage.getItem('user'));
+    this.setState({
+      user
+    },() => {
+      if(examId) {
+        this.getAnswers(examId)
+      }
+    })
   }
 
   getAnswers = async (examId) => {
@@ -55,6 +62,10 @@ class ExamEvaluation extends Component{
           this.getExamScore(candidateAnswers.testDetails.MCQQuestions, candidateAnswers.MCQQuestions)
         })
       }
+    } else {
+      this.setState({
+        error: 'Evaluation test not found.'
+      })
     }
   }
 
@@ -98,7 +109,7 @@ class ExamEvaluation extends Component{
   }
 
   render() {
-    const { candidateAnswers, startIndex, endIndex, pages, currentPage, examStatus } = this.state;
+    const { candidateAnswers, startIndex, endIndex, pages, currentPage, examStatus, error, user } = this.state;
     const testDetails = candidateAnswers.testDetails;
     const queCount = ['A', 'B', 'C', 'D', 'E', 'F'];
     const questionByPage = (testDetails && testDetails.MCQQuestions && testDetails.MCQQuestions.length && testDetails.MCQQuestions.slice(startIndex, endIndex)) || [];
@@ -110,11 +121,13 @@ class ExamEvaluation extends Component{
       <div className="test-details mb-5 mt-4">
         <div className='row'>
           <div className='col-sm-12 col-md-12 col-xs-12 mb-3'>
-            <Link  to={`/evaluations`} className="mr-3 text-secondary" title="View Details"><i className="fa fa-angle-left" /> Back to Evaluation</Link>
+            <Link  to={`/${user.companyName}/evaluations`} className="mr-3 text-secondary" title="View Details"><i className="fa fa-angle-left" /> Back to Evaluation</Link>
           </div>
           <div className="col-sm-12 col-md-12 col-xs-12">
             <div className="test-title inline-block mr-2"><h4 className='text-dark'>{testDetails && testDetails.testName}</h4></div>
-            <span className="inline-block">{candidateAnswers && moment(candidateAnswers.completionDate).format('MM/DD/YYYY hh:mm a')}</span>
+            {error ?
+                <h4 className="text-center">{error}</h4>
+              : <span className="inline-block">{candidateAnswers && moment(candidateAnswers.completionDate).format('MM/DD/YYYY hh:mm a')}</span>}
           </div>
         </div>
         <div className="row">

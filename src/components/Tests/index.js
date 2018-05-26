@@ -18,6 +18,7 @@ class OverView extends Component {
     tests: [],
     isModal: false,
     questions: [],
+    user: {},
   }
 
   componentWillMount() {
@@ -127,7 +128,7 @@ class OverView extends Component {
   }
 
   render() {
-    const { tests, isModal } = this.state;
+    const { tests, isModal, user } = this.state;
     return (
       <div className="tests">
         <CreateTestModal isModal={isModal} state={this.state} onChange={this.onChange} onSave={this.onSave} handleModal={this.handleModal}/>
@@ -147,7 +148,7 @@ class OverView extends Component {
                     <h6 className="card-subtitle mb-2 text-muted">10 MCQ, 01 Tests, 01 Tasks </h6>
                     <p className="card-text text-muted">{test.description} Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <div className="hover-active text-center text-white">
-                      <Link  to={`/testDetails/${test.id}`} className="mr-3 text-white" title="View Details"><i className="fas fa-eye" /></Link>
+                      <Link  to={`/${user.companyName}/testDetails/${test.id}`} className="mr-3 text-white" title="View Details"><i className="fas fa-eye" /></Link>
                       <a className="mr-3" title="Add Details"><i className="fas fa-user-plus" /></a>
                       <a className="mr-3" title="Delete" onClick={() => this.removeTest(test.id)}><i className="fas fa-trash" /></a>
                     </div>

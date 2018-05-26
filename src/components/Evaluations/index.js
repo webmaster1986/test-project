@@ -6,10 +6,15 @@ import CandidatesList from "../Common/CandidatesList";
 class Evaluations extends Component{
   state = {
     candidates: [],
+    user: {},
   }
 
   componentWillMount() {
     this.getAllCandidates();
+    const user =  localStorage.getItem('user') && JSON.parse(localStorage.getItem('user'));
+    this.setState({
+      user
+    })
   }
 
   getAllCandidates = async () => {
@@ -72,9 +77,9 @@ class Evaluations extends Component{
   }
 
   render() {
-    const {candidates} = this.state;
+    const {candidates, user} = this.state;
     return (
-      <CandidatesList candidates={candidates} title={"Evaluation Candidates"} onDelCandidate={this.onDelCandidate} isEvaluation={true}/>
+      <CandidatesList candidates={candidates} user={user} title={"Evaluation Candidates"} onDelCandidate={this.onDelCandidate} isEvaluation={true}/>
     )
   }
 }

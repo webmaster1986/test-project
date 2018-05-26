@@ -47,6 +47,7 @@ class TestDetails extends Component {
     codingName: "",
     codingQuestion: "",
     users: [],
+    user: {},
     candidates: [],
     testDetails: {},
     pages: 0,
@@ -61,7 +62,7 @@ class TestDetails extends Component {
   }
 
   componentWillMount() {
-    const testId = (this.props.history.location && this.props.history.location.pathname.split('/')[2]) || '';
+    const testId = (this.props.history.location && this.props.history.location.pathname.split('/')[3]) || '';
     const user =  localStorage.getItem('user') && JSON.parse(localStorage.getItem('user'));
     this.setState({
       user
@@ -430,7 +431,7 @@ class TestDetails extends Component {
   }
 
   render() {
-    const {testDetails, candidates, startIndex, endIndex, currentPage, pages, newTest, MCQModal, codingModal, inviteModal} = this.state;
+    const {user, testDetails, candidates, startIndex, endIndex, currentPage, pages, newTest, MCQModal, codingModal, inviteModal} = this.state;
     const queCount = ['A', 'B', 'C', 'D', 'E', 'F'];
     const questionByPage = (testDetails.MCQQuestions && testDetails.MCQQuestions.length && testDetails.MCQQuestions.slice(startIndex, endIndex)) || [];
     const pageContents = [];
@@ -449,7 +450,7 @@ class TestDetails extends Component {
         <InviteCandidateModal isModal={inviteModal} state={this.state} onChange={this.onInviteChange} onSave={this.onInviteSave} handleModal={this.handleInviteModal} />
         <div className='row'>
             <div className='col-sm-12 col-md-12 col-xs-12 mb-3'>
-              <Link  to={`/tests`} className="mr-3 text-secondary" title="View Details"><i className="fa fa-angle-left" /> Back</Link>
+              <Link  to={`/${user.companyName}/tests`} className="mr-3 text-secondary" title="View Details"><i className="fa fa-angle-left" /> Back</Link>
             </div>
             <div className="col-sm-8 col-md-8 col-xs-12">
               <div className='row'>

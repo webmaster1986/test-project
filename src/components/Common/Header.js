@@ -4,8 +4,7 @@ import User from '../../assets/images/avatar.png'
 import {logOut} from "../../utils/_data";
 import './Header.css';
 
-const Header = () => {
-  const user = (localStorage.getItem('user') && JSON.parse(localStorage.getItem('user'))) || {};
+const Header = ({user}) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light text-white header">
       <a className="navbar-brand">
